@@ -4,17 +4,17 @@ import React from 'react';
 import { StyleSheet, useWindowDimensions, View } from 'react-native';
 import Container from '../../components/layout/Container';
 import Section from '../../components/layout/Section';
+import AnimatedGradientText from '../../components/ui/AnimatedGradientText';
+import CursorSpotlight from '../../components/ui/CursorSpotlight';
 import FadeInUp from '../../components/ui/FadeInUp';
+import GlassCard from '../../components/ui/GlassCard';
+import GlowBackground from '../../components/ui/GlowBackground';
+import GradientMeshBackground from '../../components/ui/GradientMeshBackground';
+import MagneticButton from '../../components/ui/MagneticButton';
 import { useTheme } from '../../theme/ThemeContext';
 import { HeroContent } from './HeroContent';
 import HeroCTA from './HeroCTA';
 import HeroVisual from './HeroVisual';
-import GradientMeshBackground from '../../components/ui/GradientMeshBackground';
-import CursorSpotlight from '../../components/ui/CursorSpotlight';
-import GlassCard from '../../components/ui/GlassCard';
-import AnimatedGradientText from '../../components/ui/AnimatedGradientText';
-import MagneticButton from '../../components/ui/MagneticButton';
-import GlowBackground from '../../components/ui/GlowBackground';
 
 
 const HERO_NAME = 'Imthiyas Alam';
