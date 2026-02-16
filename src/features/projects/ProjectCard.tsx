@@ -65,10 +65,11 @@ const styles = StyleSheet.create({
     transitionProperty: Platform.OS === 'web' ? 'transform, box-shadow' : undefined,
     transitionDuration: Platform.OS === 'web' ? '0.2s' : undefined,
     cursor: Platform.OS === 'web' ? 'pointer' : undefined,
+    minHeight: 420, // Increased minHeight for taller card
   },
   imageWrap: {
     width: '100%',
-    aspectRatio: 16 / 9,
+    aspectRatio: 16 / 13, // Taller aspect ratio
     borderRadius: 12,
     overflow: 'hidden',
     marginBottom: 12,

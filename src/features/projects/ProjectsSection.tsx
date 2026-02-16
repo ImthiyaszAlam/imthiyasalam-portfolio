@@ -26,7 +26,7 @@ const ProjectsSection: React.FC = () => {
           {subtitle}
         </Text>
       </View>
-      <ProjectsGrid projects={projects.filter(p => p.featured)} />
+      <ProjectsGrid projects={projects} />
     </Section>
   );
 };

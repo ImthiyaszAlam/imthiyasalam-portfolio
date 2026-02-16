@@ -56,4 +56,37 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/yourusername/weather-dashboard",
     featured: false,
   },
+  {
+    id: "6",
+    title: "Fitness Tracker",
+    description:
+      "A mobile app to track workouts, nutrition, and progress with analytics and reminders.",
+    techStack: ["React Native", "Expo", "SQLite", "Redux"],
+    image: "https://via.placeholder.com/400x240?text=Fitness+Tracker",
+    liveUrl: "https://your-fitnessapp.com",
+    githubUrl: "https://github.com/yourusername/fitness-tracker",
+    featured: false,
+  },
+  {
+    id: "7",
+    title: "Recipe Finder",
+    description:
+      "A web app to discover, save, and share recipes with ingredient-based search.",
+    techStack: ["Vue.js", "TypeScript", "Firebase", "TailwindCSS"],
+    image: "https://via.placeholder.com/400x240?text=Recipe+Finder",
+    liveUrl: "https://your-recipefinder.com",
+    githubUrl: "https://github.com/yourusername/recipe-finder",
+    featured: false,
+  },
+  {
+    id: "8",
+    title: "Finance Dashboard",
+    description:
+      "A dashboard for tracking expenses, budgets, and investments with data visualization.",
+    techStack: ["Angular", "TypeScript", "D3.js", "Node.js"],
+    image: "https://via.placeholder.com/400x240?text=Finance+Dashboard",
+    liveUrl: "https://your-financedash.com",
+    githubUrl: "https://github.com/yourusername/finance-dashboard",
+    featured: false,
+  },
 ];

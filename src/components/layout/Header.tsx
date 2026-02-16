@@ -10,7 +10,6 @@ const MENU = [
   { id: 'projects', label: 'Projects' },
   { id: 'timeline', label: 'Timeline' },
   { id: 'contact', label: 'Contact' },
-  { id: 'contact', label: 'Contact' },
 ];
 
 const HEADER_HEIGHT = 64;

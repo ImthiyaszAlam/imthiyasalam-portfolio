@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { useBreakpoint } from '../../hooks/useBreakpoint';
+import { Ionicons } from '@expo/vector-icons';
+import React, { useRef } from 'react';
+import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../theme/ThemeContext';
 import ProjectCard from './ProjectCard';
 import type { Project } from './types';
@@ -9,62 +9,71 @@ interface ProjectsGridProps {
   projects: Project[];
 }
 
-const ProjectsGrid: React.FC<ProjectsGridProps> = React.memo(({ projects }) => {
-  const breakpoint = useBreakpoint();
-  const { theme } = useTheme();
-
-  let columns = 1;
-  if (breakpoint === 'tablet') columns = 2;
-  if (breakpoint === 'desktop') columns = 3;
-
-  // Split projects into rows for grid rendering
-  const rows: Project[][] = [];
-  for (let i = 0; i < projects.length; i += columns) {
-    rows.push(projects.slice(i, i + columns));
-  }
-
-  return (
-    <View style={[styles.gridWrap, { gap: theme.spacing.lg }]}> 
-      {rows.map((row, rowIdx) => (
-        <View
-          key={rowIdx}
-          style={[
-            styles.row,
-            { gap: theme.spacing.lg },
-            { justifyContent: 'center' },
-          ]}
-        >
-          {row.map((project) => (
-            <View
-              key={project.id}
-              style={[
-                styles.cardCol,
-                { flex: 1, minWidth: 0, maxWidth: 400 },
-              ]}
-            >
-              <ProjectCard project={project} />
-            </View>
-          ))}
-        </View>
-      ))}
-    </View>
-  );
-});
-
 const styles = StyleSheet.create({
   gridWrap: {
-    width: '100%',
-    alignItems: 'center',
-  },
-  row: {
     flexDirection: 'row',
-    width: '100%',
-    marginBottom: 0,
+    alignItems: 'stretch',
+    paddingVertical: 8,
+    paddingHorizontal: 8,
   },
   cardCol: {
     alignItems: 'stretch',
     justifyContent: 'center',
   },
+  arrowButton: {
+    padding: 8,
+    zIndex: 2,
+  },
+});
+
+const ProjectsGrid: React.FC<ProjectsGridProps> = React.memo(({ projects }) => {
+  const { theme } = useTheme();
+  const scrollRef = useRef<ScrollView>(null);
+
+  const scrollBy = (offset: number) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ x: offset, animated: true });
+    }
+  };
+
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', width: '100%' }}>
+      <TouchableOpacity
+        onPress={() => scrollBy(-320)}
+        style={styles.arrowButton}
+        accessibilityLabel="Scroll left"
+      >
+        <Ionicons name="chevron-back" size={28} color={theme.colors.text} />
+      </TouchableOpacity>
+      <ScrollView
+        ref={scrollRef}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={[styles.gridWrap, { gap: theme.spacing.lg }]}
+        style={{ flex: 1 }}
+      >
+        {projects.map((project) => (
+          <View
+            key={project.id}
+            style={[
+              styles.cardCol,
+              { minWidth: 260, maxWidth: 300, marginRight: theme.spacing.lg },
+            ]}
+          >
+            <ProjectCard project={project} />
+          </View>
+        ))}
+      </ScrollView>
+      <TouchableOpacity
+        onPress={() => scrollBy(320)}
+        style={styles.arrowButton}
+        accessibilityLabel="Scroll right"
+      >
+        <Ionicons name="chevron-forward" size={28} color={theme.colors.text} />
+      </TouchableOpacity>
+    </View>
+  );
 });
 
 export default ProjectsGrid;
+
