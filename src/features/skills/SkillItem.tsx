@@ -1,7 +1,9 @@
 import React, { memo } from "react";
-import { StyleSheet, Text, View, ViewStyle } from "react-native";
+import { Pressable, StyleSheet, Text, View, ViewStyle } from "react-native";
+import GlowPulse from '../../components/ui/animation/GlowPulse';
+import ShimmerSweep from '../../components/ui/animation/ShimmerSweep';
 import { useTheme } from "../../theme/ThemeContext";
-import { SkillProgressBar } from "./SkillProgressBar";
+import CinematicProgressBar from './CinematicProgressBar';
 import { Skill } from "./types";
 
 interface SkillItemProps {
@@ -16,26 +18,44 @@ const SkillItemComponent: React.FC<SkillItemProps> = ({ skill, showPercent = fal
   // Icon rendering: string or component
   const Icon = typeof skill.icon === "string" ? null : skill.icon;
 
+  const [hovered, setHovered] = React.useState(false);
+
   return (
-    <View style={[styles.container, { marginBottom: spacing.md }, style]}>
+    <Pressable
+      onHoverIn={() => setHovered(true)}
+      onHoverOut={() => setHovered(false)}
+      style={({ pressed }) => [
+        styles.container,
+        {
+          backgroundColor: hovered ? 'rgba(255,255,255,0.04)' : 'transparent',
+          borderRadius: 12,
+          boxShadow: hovered ? '0 2px 16px 0 rgba(80,200,255,0.12)' : 'none',
+          transform: [{ scale: hovered ? 1.02 : 1 }],
+          transition: 'all 200ms cubic-bezier(0.4,0.2,0.2,1)',
+        },
+        style,
+      ]}
+      accessibilityRole="listitem"
+    >
+      <GlowPulse active={hovered} />
       <View style={styles.row}>
         <View style={[styles.iconPlaceholder, { backgroundColor: colors.backgroundSecondary }]}> 
           {Icon ? <Icon width={24} height={24} color={colors.primary} /> : null}
-          {/* If using string icons, replace with your icon system */}
         </View>
         <View style={styles.nameContainer}>
-          <Text style={[styles.name, { color: colors.text }]} numberOfLines={1}>
+          <Text style={[styles.name, { color: hovered ? theme.glowPrimary || colors.primary : colors.text }]} numberOfLines={1}>
             {skill.name}
           </Text>
           {showPercent && (
-            <Text style={[styles.percent, { color: colors.textSecondary }]}> 
-              {skill.level}%
+            <Text style={[styles.percent, { color: hovered ? theme.glowPrimary || colors.primary : colors.textSecondary }]}> 
+              {hovered ? `${skill.level}%` : ''}
             </Text>
           )}
         </View>
       </View>
-      <SkillProgressBar level={skill.level} style={{ marginTop: spacing.xs }} />
-    </View>
+      <CinematicProgressBar level={skill.level} hovered={hovered} style={{ marginTop: spacing.xs }} />
+      <ShimmerSweep active={hovered} />
+    </Pressable>
   );
 };
 

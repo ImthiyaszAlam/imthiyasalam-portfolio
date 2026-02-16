@@ -28,11 +28,12 @@ const Section = forwardRef<View, SectionProps>(
   ) => {
 
     const { theme } = useTheme();
-    const sectionRef = useRef<View>(null);
+    const sectionRef = useRef<any>(null);
     const { registerSection } = useNavigation();
 
     useEffect(() => {
-      if (sectionRef.current) {
+      // For web, register HTMLElement ref; for native, skip
+      if (typeof window !== 'undefined' && sectionRef.current) {
         registerSection(id as any, sectionRef as any);
       }
     }, [id, registerSection]);
@@ -62,7 +63,7 @@ const Section = forwardRef<View, SectionProps>(
     // Forward ref if provided, otherwise use sectionRef
     return (
       <View
-        ref={ref ?? sectionRef}
+        ref={typeof window !== 'undefined' ? sectionRef : ref}
         accessibilityLabel={id}
         nativeID={id}
         style={sectionStyles}

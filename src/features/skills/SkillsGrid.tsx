@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { StyleSheet, View, ViewStyle } from "react-native";
+import FadeInUpStagger from '../../components/ui/animation/FadeInUpStagger';
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { useTheme } from "../../theme/ThemeContext";
 import { SkillCategoryCard } from "./SkillCategoryCard";
@@ -26,25 +27,27 @@ const SkillsGridComponent: React.FC<SkillsGridProps> = ({ categories, style }) =
   }
 
   return (
-    <View style={[styles.grid, { gap: spacing.lg }, style]}>
-      {rows.map((row, rowIdx) => (
-        <View
-          key={rowIdx}
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            gap: spacing.lg,
-            marginBottom: rowIdx !== rows.length - 1 ? spacing.lg : 0,
-          }}
-        >
-          {row.map((cat) => (
-            <View key={cat.title} style={{ flex: 1, minWidth: 0 }}>
-              <SkillCategoryCard category={cat} />
-            </View>
-          ))}
-        </View>
-      ))}
-    </View>
+    <FadeInUpStagger>
+      <View style={[styles.grid, { gap: spacing.lg }, style]}>
+        {rows.map((row, rowIdx) => (
+          <View
+            key={rowIdx}
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              gap: spacing.lg,
+              marginBottom: rowIdx !== rows.length - 1 ? spacing.lg : 0,
+            }}
+          >
+            {row.map((cat) => (
+              <View key={cat.title} style={{ flex: 1, minWidth: 0 }}>
+                <SkillCategoryCard category={cat} />
+              </View>
+            ))}
+          </View>
+        ))}
+      </View>
+    </FadeInUpStagger>
   );
 };
 

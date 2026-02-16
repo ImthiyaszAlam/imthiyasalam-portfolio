@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { Platform, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { useNavigation } from '../../app/navigation/NavigationProvider';
+import { SectionId, useNavigation } from '../../app/navigation/NavigationProvider';
 import { useTheme } from '../../theme/ThemeContext';
 import Container from './Container';
 
@@ -9,6 +9,7 @@ const MENU = [
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
   { id: 'timeline', label: 'Timeline' },
+  { id: 'contact', label: 'Contact' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -31,7 +32,7 @@ const Header: React.FC = React.memo(() => {
     : {};
 
   const handleMenuPress = useCallback(
-    (id: string) => () => {
+    (id: SectionId) => () => {
       scrollToSection(id);
     },
     [scrollToSection]
@@ -43,20 +44,17 @@ const Header: React.FC = React.memo(() => {
         {MENU.map((item) => (
           <Pressable
             key={item.id}
-            onPress={handleMenuPress(item.id)}
+            onPress={handleMenuPress(item.id as SectionId)}
             accessibilityRole="menuitem"
             accessibilityState={{ selected: activeSection === item.id }}
             style={({ pressed }) => [
               styles.menuItem,
-              activeSection === item.id && { backgroundColor: theme.colors.primary },
+              activeSection === item.id && styles.menuItemActive,
               pressed && { opacity: 0.7 },
             ]}
           >
             <Text
-              style={[
-                styles.menuText,
-                activeSection === item.id && { color: '#fff' },
-              ]}
+              style={[styles.menuText, activeSection === item.id && { color: '#fff' }]}
             >
               {item.label}
             </Text>
@@ -75,7 +73,7 @@ const Header: React.FC = React.memo(() => {
         shadowStyle,
         blurStyle,
       ]}
-      accessibilityRole="banner"
+      // accessibilityRole="banner" // Not valid in React Native, remove or replace
     >
       <Container style={styles.container}>
         <View style={styles.logoBox}>
@@ -95,7 +93,7 @@ const styles = StyleSheet.create({
     top: 0,
     width: '100%',
     zIndex: 100,
-    transition: 'box-shadow 0.2s',
+    // transition: 'box-shadow 0.2s', // Not valid in React Native
     display: 'flex',
     justifyContent: 'center',
   },
@@ -130,8 +128,15 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 4,
     backgroundColor: 'transparent',
-    cursor: 'pointer',
-    outlineStyle: 'none',
+    borderBottomWidth: 0,
+    borderBottomColor: 'transparent',
+    // cursor: 'pointer', // Not valid in React Native
+    // outlineStyle: 'none', // Not valid in React Native
+  },
+  menuItemActive: {
+    backgroundColor: '#0070f3',
+    borderBottomWidth: 3,
+    borderBottomColor: '#0070f3',
   },
   menuText: {
     fontSize: 16,

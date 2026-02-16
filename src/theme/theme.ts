@@ -75,3 +75,25 @@ export const radii = {
   lg: 16,
   xl: 32,
 };
+
+// Glassmorphism, glow, gradients, shimmer
+export const glassBackground = {
+  light: "rgba(255,255,255,0.7)",
+  dark: "rgba(30,30,40,0.7)",
+};
+export const glowPrimary = {
+  light: "#6ef3ff",
+  dark: "#6ef3ff",
+};
+export const gradientSkill = {
+  light: "linear-gradient(90deg,#6ef3ff,#a7ffeb,#fff)",
+  dark: "linear-gradient(90deg,#6ef3ff,#23272F,#fff)",
+};
+export const gradientBorder = {
+  light: "linear-gradient(90deg,#6ef3ff,#a7ffeb,#fff)",
+  dark: "linear-gradient(90deg,#6ef3ff,#23272F,#fff)",
+};
+export const shimmerColor = {
+  light: "#fff",
+  dark: "#6ef3ff",
+};
