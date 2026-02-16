@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Section from '../../components/layout/Section';
+import GlassCard from '../../components/ui/GlassCard';
 import { useTheme } from '../../theme/ThemeContext';
 import { ContactForm } from './ContactForm';
-import GlassCard from '../../components/ui/GlassCard';
 
 const ContactSection: React.FC = () => {
   const { theme } = useTheme();

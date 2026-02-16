@@ -5,36 +5,30 @@ import { Button } from '../../components/atoms/Button';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 
 const HeroCTA: React.FC = () => {
-  const { isSmall } = useBreakpoint();
+  const breakpoint = useBreakpoint();
   const { scrollToSection } = useNavigation();
-
   return (
     <View
       style={[
         styles.container,
-        isSmall ? styles.containerStacked : styles.containerRow,
+        breakpoint === "mobile" ? styles.containerStacked : styles.containerRow,
       ]}
-      accessibilityRole="group"
       accessibilityLabel="Hero call to action"
     >
       <Button
-        variant="primary"
+        title="View Projects"
         onPress={() => scrollToSection('projects')}
         accessibilityRole="button"
         accessibilityLabel="View Projects"
-        style={isSmall ? styles.buttonStacked : styles.buttonRow}
-      >
-        View Projects
-      </Button>
+        style={breakpoint === "mobile" ? styles.buttonStacked : styles.buttonRow}
+      />
       <Button
-        variant="secondary"
+        title="Contact Me"
         onPress={() => scrollToSection('contact')}
         accessibilityRole="button"
         accessibilityLabel="Contact Me"
-        style={isSmall ? undefined : styles.buttonRow}
-      >
-        Contact Me
-      </Button>
+        style={breakpoint === "mobile" ? undefined : styles.buttonRow}
+      />
     </View>
   );
 };

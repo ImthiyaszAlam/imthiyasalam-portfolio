@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Section from '../../components/layout/Section';
-import GlassCard from '../../components/ui/GlassCard';
 import TimelineList from '../../components/organisms/TimelineList';
+import GlassCard from '../../components/ui/GlassCard';
 import { useTheme } from '../../theme/ThemeContext';
 
 const TIMELINE = [

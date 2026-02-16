@@ -18,7 +18,7 @@ import HeroVisual from './HeroVisual';
 
 
 const HERO_NAME = 'Imthiyas Alam';
-const HERO_ROLE = 'Full Stack Developer';
+const HERO_ROLE = 'Android Engineer';
 const HERO_DESC = 'I build modern, performant web and mobile experiences that delight users and drive business value.';
 
 const HeroSection: React.FC = () => {
@@ -41,12 +41,11 @@ const HeroSection: React.FC = () => {
           ]}
         >
           {/* Content Column */}
-          <FadeInUp delay={0} style={[styles.left, isMobile && styles.fullWidth, { zIndex: 2 }]}> 
+          <FadeInUp delay={0} style={[styles.left, isMobile && styles.fullWidth, { zIndex: 2 }]}>
             <GlassCard style={{ width: '100%', alignItems: 'center', padding: isMobile ? 20 : 32, gap: 16 }}>
               <AnimatedGradientText fontSize={isMobile ? 32 : 48} style={{ marginBottom: 8 }}>
                 {HERO_NAME}
               </AnimatedGradientText>
-              <HeroContent name={HERO_NAME} role={HERO_ROLE} description={HERO_DESC} />
               <View style={styles.ctaWrap}>
                 <View style={{ flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? 12 : 16, width: '100%' }}>
                   {/* Wrap each CTA button with MagneticButton */}
@@ -59,7 +58,7 @@ const HeroSection: React.FC = () => {
           </FadeInUp>
 
           {/* Visual Column */}
-          <FadeInUp delay={120} style={[styles.right, isMobile && styles.fullWidth, { zIndex: 2, position: 'relative' }]}> 
+          <FadeInUp delay={120} style={[styles.right, isMobile && styles.fullWidth, { zIndex: 2, position: 'relative' }]}>
             <View style={{ width: '100%', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
               {/* Glow behind visual */}
               <GlowBackground size={isMobile ? 180 : 340} color={theme.colors.primary} opacity={0.22} />

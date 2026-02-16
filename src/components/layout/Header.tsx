@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
     top: 0,
     width: '100%',
     zIndex: 100,
-    // transition: 'box-shadow 0.2s', // Not valid in React Native
     display: 'flex',
     justifyContent: 'center',
   },
