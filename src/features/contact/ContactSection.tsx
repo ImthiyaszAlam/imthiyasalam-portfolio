@@ -3,12 +3,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import Section from '../../components/layout/Section';
 import { useTheme } from '../../theme/ThemeContext';
 import { ContactForm } from './ContactForm';
+import GlassCard from '../../components/ui/GlassCard';
 
 const ContactSection: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <Section id="contact">
+    <Section id="contact" background="default">
       <View style={styles.headingWrap}>
         <Text
           style={[styles.title, { color: theme.colors.text, fontSize: theme.typography.h1.fontSize }]}
@@ -22,7 +23,9 @@ const ContactSection: React.FC = () => {
           Get in touch using the form below.
         </Text>
       </View>
-      <ContactForm />
+      <GlassCard style={{ width: '100%', maxWidth: 480, alignSelf: 'center' }}>
+        <ContactForm />
+      </GlassCard>
     </Section>
   );
 };

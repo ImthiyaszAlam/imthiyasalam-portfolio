@@ -14,14 +14,10 @@ const GlassCard: React.FC<GlassCardProps> = ({
   ...rest
 }) => {
   const colorScheme = useColorScheme() as 'light' | 'dark';
-  const backgroundColor =
-    colorScheme === 'dark'
-      ? 'rgba(30, 32, 38, 0.55)'
-      : 'rgba(255, 255, 255, 0.55)';
-  const borderColor =
-    colorScheme === 'dark'
-      ? 'rgba(255,255,255,0.10)'
-      : 'rgba(255,255,255,0.18)';
+  // Always use black glassmorphic background
+  const backgroundColor = 'rgba(0,0,0,0.55)';
+  // Border is orange glassy
+  const borderColor = 'rgba(255,136,0,0.18)';
 
   return (
     <View
@@ -53,8 +49,9 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 24,
     borderWidth: 1,
-    shadowColor: '#000',
-    shadowOpacity: 0.10,
+    borderColor: 'rgba(255,136,0,0.18)',
+    shadowColor: '#FF8800',
+    shadowOpacity: 0.18,
     shadowRadius: 24,
     shadowOffset: { width: 0, height: 8 },
     elevation: 4, // Android shadow

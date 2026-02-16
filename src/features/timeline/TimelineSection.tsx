@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Section from '../../components/layout/Section';
+import GlassCard from '../../components/ui/GlassCard';
 import TimelineList from '../../components/organisms/TimelineList';
 import { useTheme } from '../../theme/ThemeContext';
 
@@ -15,7 +16,7 @@ const TimelineSection: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <Section id="timeline">
+    <Section id="timeline" background="default">
       <View style={styles.headingWrap}>
         <Text
           style={[styles.title, { color: theme.colors.text, fontSize: theme.typography.h1.fontSize }]}
@@ -29,7 +30,9 @@ const TimelineSection: React.FC = () => {
           A brief journey through my milestones.
         </Text>
       </View>
-      <TimelineList timeline={TIMELINE} />
+      <GlassCard style={{ width: '100%', maxWidth: 600, alignSelf: 'center' }}>
+        <TimelineList timeline={TIMELINE} />
+      </GlassCard>
     </Section>
   );
 };

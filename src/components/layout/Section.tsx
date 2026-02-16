@@ -39,9 +39,9 @@ const Section = forwardRef<View, SectionProps>(
     }, [id, registerSection]);
 
     let backgroundColor: string | undefined;
-    if (background === 'surface') backgroundColor = theme.colors.surface;
+    if (background === 'surface') backgroundColor = 'rgba(0,0,0,0.55)';
     else if (background === 'transparent') backgroundColor = 'transparent';
-    else backgroundColor = theme.colors.background;
+    else backgroundColor = 'rgba(0,0,0,0.85)';
 
     const paddingVertical = theme.spacing.lg;
 

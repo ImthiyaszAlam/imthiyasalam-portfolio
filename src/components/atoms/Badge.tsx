@@ -13,14 +13,23 @@ export const Badge: React.FC<BadgeProps> = ({ label, style, ...props }) => (
 
 const styles = StyleSheet.create({
   badge: {
-    backgroundColor: '#FF4081',
+    backgroundColor: 'rgba(255,136,0,0.85)', // orange glassy
     borderRadius: 12,
-    paddingHorizontal: 8,
-    paddingVertical: 2,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
     alignSelf: 'flex-start',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.18)',
+    // Web only: backdrop blur
+    ...(typeof window !== 'undefined' ? {
+      backdropFilter: 'blur(12px)',
+      WebkitBackdropFilter: 'blur(12px)',
+    } : {}),
   },
   text: {
     color: '#fff',
     fontSize: 12,
+    fontWeight: 'bold',
+    letterSpacing: 0.5,
   },
 });

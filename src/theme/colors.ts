@@ -10,21 +10,21 @@ export type ColorPalette = {
 };
 
 export const lightColors: ColorPalette = {
-  background: "#FFFFFF",
-  surface: "#F7F7F7",
-  primary: "#2563eb",
-  accent: "#f59e42",
-  text: "#18181b",
-  textSecondary: "#6B7280", // gray-500
-  border: "#E5E7EB",
+  background: "rgba(0,0,0,0.85)", // glassy black
+  surface: "rgba(0,0,0,0.55)", // glassmorphic black
+  primary: "#FF8800", // orange
+  accent: "#FF8800", // orange
+  text: "#FFFFFF", // white
+  textSecondary: "#FF8800", // orange for highlight
+  border: "rgba(255,255,255,0.12)",
 };
 
 export const darkColors: ColorPalette = {
-  background: "#18181b",
-  surface: "#23232a",
-  primary: "#60a5fa",
-  accent: "#fbbf24",
-  text: "#F7F7F7",
-  textSecondary: "#9CA3AF", // gray-400
-  border: "#27272a",
+  background: "rgba(0,0,0,0.85)", // glassy black
+  surface: "rgba(0,0,0,0.55)", // glassmorphic black
+  primary: "#FF8800", // orange
+  accent: "#FF8800", // orange
+  text: "#FFFFFF", // white
+  textSecondary: "#FF8800", // orange for highlight
+  border: "rgba(255,255,255,0.12)",
 };

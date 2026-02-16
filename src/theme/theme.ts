@@ -1,20 +1,21 @@
 // Modern neutral premium palette
+
 export const lightColors = {
-  primary: "#3B82F6", // blue-500
-  background: "#F5F6FA", // neutral-50
-  surface: "#FFFFFF",
-  accent: "#A78BFA", // violet-400
-  text: "#23272F", // neutral-900
-  border: "#E5E7EB", // neutral-200
+  primary: "#FF8800", // orange
+  background: "rgba(0,0,0,0.85)",
+  surface: "rgba(0,0,0,0.55)",
+  accent: "#FF8800", // orange
+  text: "#FFFFFF", // white
+  border: "rgba(255,255,255,0.12)",
 };
 
 export const darkColors = {
-  primary: "#60A5FA", // blue-400
-  background: "#18181B", // neutral-900
-  surface: "#23272F",
-  accent: "#C4B5FD", // violet-300
-  text: "#F3F4F6", // neutral-100
-  border: "#27272A", // neutral-800
+  primary: "#FF8800", // orange
+  background: "rgba(0,0,0,0.85)",
+  surface: "rgba(0,0,0,0.55)",
+  accent: "#FF8800", // orange
+  text: "#FFFFFF", // white
+  border: "rgba(255,255,255,0.12)",
 };
 
 // Typography scale

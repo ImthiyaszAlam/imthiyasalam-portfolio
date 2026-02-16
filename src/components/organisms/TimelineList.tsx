@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import GlassCard from '../ui/GlassCard';
 
 type TimelineItem = {
   year: string;
@@ -15,11 +16,11 @@ type TimelineListProps = {
 const TimelineList: React.FC<TimelineListProps> = ({ timeline }) => (
   <View style={styles.list}>
     {timeline.map((item, idx) => (
-      <View key={item.year + item.title} style={styles.item}>
+      <GlassCard key={item.year + item.title} style={styles.item}>
         <Text style={styles.year}>{item.year}</Text>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.desc}>{item.description}</Text>
-      </View>
+      </GlassCard>
     ))}
   </View>
 );
