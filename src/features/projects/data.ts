@@ -7,7 +7,8 @@ export const projects: Project[] = [
     description:
       "A modern, responsive portfolio site to showcase my work and skills, built with React, TypeScript, and styled-components.",
     techStack: ["React", "TypeScript", "styled-components", "Vercel"],
-    image: "https://via.placeholder.com/400x240?text=Portfolio",
+    image:
+      "https://plus.unsplash.com/premium_photo-1757690499338-38c511645730?q=80&w=701&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     liveUrl: "https://your-portfolio.com",
     githubUrl: "https://github.com/yourusername/portfolio",
     featured: true,

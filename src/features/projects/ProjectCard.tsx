@@ -18,41 +18,41 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project }) => {
 
   return (
     <Card style={styles.card}>
-      <View style={styles.imageWrap}>
-        <Image
-          source={{ uri: project.image }}
-          style={styles.image}
-          resizeMode="cover"
-          accessible
-          accessibilityLabel={project.title + ' image'}
-        />
-      </View>
-      <Text style={styles.title}>{project.title}</Text>
-      <Text style={styles.description} numberOfLines={2}>{project.description}</Text>
-      <View style={styles.techStack} accessible accessibilityLabel="Tech stack">
-        {project.techStack.map((tech) => (
-          <View key={tech} style={styles.tag} accessibilityRole="text">
-            <Text style={styles.tagText}>{tech}</Text>
-          </View>
-        ))}
-      </View>
-      <View style={styles.actions}>
-        <Pressable
-          style={({ pressed }) => [styles.button, pressed && styles.buttonPressed]}
-          onPress={() => handleOpen(project.liveUrl)}
-          accessibilityRole="button"
-          accessibilityLabel={`Open live demo for ${project.title}`}
-        >
-          <Text style={styles.buttonText}>Live Demo</Text>
-        </Pressable>
-        <Pressable
-          style={({ pressed }) => [styles.button, pressed && styles.buttonPressed]}
-          onPress={() => handleOpen(project.githubUrl)}
-          accessibilityRole="button"
-          accessibilityLabel={`Open GitHub for ${project.title}`}
-        >
-          <Text style={styles.buttonText}>GitHub</Text>
-        </Pressable>
+      <Image
+        source={{ uri: project.image }}
+        style={StyleSheet.absoluteFillObject}
+        resizeMode="cover"
+        accessible
+        accessibilityLabel={project.title + ' image'}
+      />
+      <View style={styles.overlay}>
+        <Text style={styles.title}>{project.title}</Text>
+        <Text style={styles.description} numberOfLines={2}>{project.description}</Text>
+        <View style={styles.techStack} accessible accessibilityLabel="Tech stack">
+          {project.techStack.map((tech) => (
+            <View key={tech} style={styles.tag} accessibilityRole="text">
+              <Text style={styles.tagText}>{tech}</Text>
+            </View>
+          ))}
+        </View>
+        <View style={styles.actions}>
+          <Pressable
+            style={({ pressed }) => [styles.button, pressed && styles.buttonPressed]}
+            onPress={() => handleOpen(project.liveUrl)}
+            accessibilityRole="button"
+            accessibilityLabel={`Open live demo for ${project.title}`}
+          >
+            <Text style={styles.buttonText}>Live Demo</Text>
+          </Pressable>
+          <Pressable
+            style={({ pressed }) => [styles.button, pressed && styles.buttonPressed]}
+            onPress={() => handleOpen(project.githubUrl)}
+            accessibilityRole="button"
+            accessibilityLabel={`Open GitHub for ${project.title}`}
+          >
+            <Text style={styles.buttonText}>GitHub</Text>
+          </Pressable>
+        </View>
       </View>
     </Card>
   );
@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
     transitionDuration: Platform.OS === 'web' ? '0.2s' : undefined,
     cursor: Platform.OS === 'web' ? 'pointer' : undefined,
     minHeight: 420,
-    backgroundColor: 'rgba(0,0,0,0.55)',
     borderRadius: 20,
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.12)',
@@ -75,18 +74,14 @@ const styles = StyleSheet.create({
       backdropFilter: 'blur(24px)',
       WebkitBackdropFilter: 'blur(24px)',
     } : {}),
+    backgroundColor: 'transparent',
   },
-  imageWrap: {
-    width: '100%',
-    aspectRatio: 16 / 13, // Taller aspect ratio
-    borderRadius: 12,
-    overflow: 'hidden',
-    marginBottom: 12,
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 12,
+  overlay: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 20,
+    backgroundColor: 'rgba(0,0,0,0.55)',
+    borderRadius: 20,
   },
   title: {
     fontSize: 20,
@@ -94,12 +89,22 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     color: '#fff',
     letterSpacing: 0.2,
+    backgroundColor: 'rgba(0,0,0,0.35)',
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    alignSelf: 'flex-start',
   },
   description: {
     fontSize: 15,
     color: '#fff',
     opacity: 0.85,
     marginBottom: 8,
+    backgroundColor: 'rgba(0,0,0,0.25)',
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    alignSelf: 'flex-start',
   },
   techStack: {
     flexDirection: 'row',
