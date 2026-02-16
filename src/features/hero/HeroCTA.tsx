@@ -21,6 +21,7 @@ const HeroCTA: React.FC = () => {
         accessibilityRole="button"
         accessibilityLabel="View Projects"
         style={breakpoint === "mobile" ? styles.buttonStacked : styles.buttonRow}
+        glass
       />
       <Button
         title="Contact Me"
@@ -28,6 +29,7 @@ const HeroCTA: React.FC = () => {
         accessibilityRole="button"
         accessibilityLabel="Contact Me"
         style={breakpoint === "mobile" ? undefined : styles.buttonRow}
+        glass
       />
     </View>
   );
