@@ -1,1 +1,1 @@
-// Export contact feature modules here
+export { default as ContactSection } from './ContactSection';

@@ -1,1 +1,1 @@
-// Export timeline feature modules here
+export { default as TimelineSection } from "./TimelineSection";
