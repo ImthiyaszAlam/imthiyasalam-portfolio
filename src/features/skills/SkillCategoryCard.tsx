@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View, ViewStyle } from "react-native";
 import FadeInUpStagger from '../../components/ui/animation/FadeInUpStagger';
 import GlowOrb from '../../components/ui/glow/GlowOrb';
 import { useTheme } from "../../theme/ThemeContext";
-import { SkillItem } from "./SkillItem";
+import { SkillItem } from "./SkillItem/SkillItem";
 import { SkillCategory } from "./types";
 
 interface SkillCategoryCardProps {

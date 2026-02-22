@@ -1,11 +1,10 @@
 // Fallback for using MaterialIcons on Android and web.
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { SymbolWeight, SymbolViewProps } from 'expo-symbols';
-import { ComponentProps } from 'react';
+import { SymbolWeight } from 'expo-symbols';
 import { OpaqueColorValue, type StyleProp, type TextStyle } from 'react-native';
 
-type IconMapping = Record<SymbolViewProps['name'], ComponentProps<typeof MaterialIcons>['name']>;
+type IconMapping = Record<string, string>;
 type IconSymbolName = keyof typeof MAPPING;
 
 /**
@@ -18,6 +17,27 @@ const MAPPING = {
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
+  // Skill icons
+  'react': 'code',
+  'typescript': 'code',
+  'nextjs': 'code',
+  'html5': 'language-html5',
+  'css3': 'language-css3',
+  'tailwindcss': 'code',
+  'expo': 'code',
+  'android': 'android',
+  'apple': 'apple',
+  'nodejs': 'nodejs',
+  'express': 'code',
+  'api': 'api',
+  'graphql': 'graphql',
+  'mongodb': 'storage',
+  'postgresql': 'storage',
+  'github': 'github',
+  'vscode': 'code',
+  'jest': 'code',
+  'cicd': 'build',
+  'figma': 'brush',
 } as IconMapping;
 
 /**
