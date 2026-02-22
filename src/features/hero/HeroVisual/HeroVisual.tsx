@@ -1,9 +1,10 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, Text, View } from 'react-native';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
-import { useBreakpoint } from '../../hooks/useBreakpoint';
-import { useTheme } from '../../theme/ThemeContext';
+import { useBreakpoint } from '../../../hooks/useBreakpoint';
+import { useTheme } from '../../../theme/ThemeContext';
+import { heroVisualStyles } from './HeroVisual.style';
 
 const HeroVisual: React.FC = () => {
   const breakpoint = useBreakpoint();
@@ -72,7 +73,7 @@ const HeroVisual: React.FC = () => {
       // @ts-ignore web: ref for mouse parallax
       ref={Platform.OS === 'web' ? parallaxRef : undefined}
       style={[
-        styles.container,
+        heroVisualStyles.container,
         {
           width: boxSize,
           height: boxSize,
@@ -90,8 +91,13 @@ const HeroVisual: React.FC = () => {
       {/* Subtle overlay for visual effect */}
       <View
         style={[
-          StyleSheet.absoluteFill,
+          heroVisualStyles.container,
           {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
             borderRadius,
             backgroundColor: theme.colors.primary,
             opacity: 0.15,
@@ -99,34 +105,13 @@ const HeroVisual: React.FC = () => {
         ]}
         pointerEvents="none"
       />
-      <View style={styles.centerContent}>
-        <Text style={styles.placeholderText}>Profile Visual</Text>
+      <View style={heroVisualStyles.centerContent}>
+        <Text style={heroVisualStyles.placeholderText}>Profile Visual</Text>
       </View>
     </Animated.View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    aspectRatio: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    margin: 0,
-  },
-  centerContent: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 1,
-  },
-  placeholderText: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: '600',
-    opacity: 0.85,
-    textAlign: 'center',
-  },
-});
+
 
 export default HeroVisual;

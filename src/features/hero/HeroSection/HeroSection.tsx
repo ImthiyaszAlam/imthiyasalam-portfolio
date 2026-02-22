@@ -3,7 +3,7 @@ import { Dimensions, Text, View } from 'react-native';
 import Section from '../../../components/layout/Section';
 import GlassCard from '../../../components/ui/GlassCard';
 import HeroCTA from '../HeroCTA/HeroCTA';
-import HeroVisual from '../HeroVisual';
+import HeroVisual from '../HeroVisual/HeroVisual';
 import { heroSectionStyles } from './HeroSection.style';
 
 
