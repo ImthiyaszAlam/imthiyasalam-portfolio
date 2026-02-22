@@ -1,7 +1,6 @@
 import React from 'react';
-import { Dimensions, Text, View } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import Section from '../../../components/layout/Section';
-import GlassCard from '../../../components/ui/GlassCard';
 import HeroCTA from '../HeroCTA/HeroCTA';
 import HeroVisual from '../HeroVisual/HeroVisual';
 import { heroSectionStyles } from './HeroSection.style';
@@ -24,14 +23,7 @@ const HeroSection: React.FC = () => {
     >
       <View style={heroSectionStyles.main}>
         <View style={heroSectionStyles.row}>
-          <GlassCard style={heroSectionStyles.glassCard}>
-            <View style={heroSectionStyles.heroInfo}>
-              <View style={heroSectionStyles.heroNameWrapper}>
-                <Text style={heroSectionStyles.heroName}>{HERO_NAME}</Text>
-              </View>
-              <Text style={heroSectionStyles.heroRole}>{HERO_DESCRIPTION}</Text>
-            </View>
-          </GlassCard>
+          {/* The glass card is now rendered globally as an overlay. Only render the rest of the content here. */}
           <View style={heroSectionStyles.visualWrapper}>
             <HeroVisual />
           </View>

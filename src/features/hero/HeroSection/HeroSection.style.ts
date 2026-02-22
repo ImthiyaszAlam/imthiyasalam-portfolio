@@ -9,15 +9,16 @@ export const heroSectionStyles = StyleSheet.create({
   },
   main: {
     flex: 1,
-    width: "100%",
+    width: "90%",
+    marginLeft: "auto",
     justifyContent: "center",
   },
   row: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
     flex: 1,
+    // No justifyContent, so content aligns right
   },
   heroInfo: {
     alignItems: "flex-start",

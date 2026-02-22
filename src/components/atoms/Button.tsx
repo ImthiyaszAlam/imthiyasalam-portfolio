@@ -28,17 +28,18 @@ export const Button: React.FC<ButtonProps> = ({ title, style, ...props }) => (
 
 const styles = StyleSheet.create({
   button: {
+    paddingVertical:12,
     padding: 12,
     backgroundColor: '#0070f3',
-    borderRadius: 6,
+    borderRadius: 50,
+    paddingHorizontal: 24,
     alignItems: 'center',
   },
   glass: {
-    backgroundColor: 'rgba(255,255,255,0.08)', // more transparent
+    backgroundColor: 'rgba(10, 3, 3, 0.08)', // more transparent
     borderColor: 'rgba(255,136,0,0.25)', // orange border
     borderWidth: 1,
-    shadowColor: '#FF8800', // orange shadow
-    shadowOpacity: 0.18,
+    shadowOpacity: 1,
     shadowRadius: 24,
     shadowOffset: { width: 0, height: 8 },
     // Web only: backdrop blur
