@@ -1,15 +1,16 @@
 import React, { useCallback, useMemo } from 'react';
 import { Platform, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { IconSymbol } from '../../../components/ui/icon-symbol';
 import { SectionId, useNavigation } from '../../app/navigation/NavigationProvider';
 import { useTheme } from '../../theme/ThemeContext';
 import Container from './Container';
 
 const MENU = [
-  { id: 'home', label: 'Home' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'timeline', label: 'Timeline' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'home', icon: 'house.fill' },
+  { id: 'skills', icon: 'chevron.right' }, // Use mapped icon
+  { id: 'projects', icon: 'chevron.left.forwardslash.chevron.right' }, // Use mapped icon
+  { id: 'timeline', icon: 'paperplane.fill' }, // Use mapped icon
+  { id: 'contact', icon: 'chevron.right' }, // Use mapped icon
 ];
 
 const HEADER_HEIGHT = 64;
@@ -53,11 +54,12 @@ const Header: React.FC = React.memo(() => {
               pressed && { opacity: 0.7 },
             ]}
           >
-            <Text
-              style={[styles.menuText, activeSection === item.id && styles.menuTextActive]}
-            >
-              {item.label}
-            </Text>
+            <IconSymbol
+              name={item.icon as any}
+              size={24}
+              color={activeSection === item.id ? theme.colors.primary : theme.colors.text}
+              style={activeSection === item.id ? styles.menuTextActive : styles.menuText}
+            />
           </Pressable>
         ))}
       </View>
