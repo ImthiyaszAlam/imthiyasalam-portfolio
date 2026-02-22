@@ -17,7 +17,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ subtitle, style })
   const { spacing } = theme;
 
   return (
-    <Section id="skills" style={[styles.section, style]} accessibilityRole="section">
+    <Section id="skills" background="transparent" style={[styles.section, style]} accessibilityRole="section">
       <AnimatedBackground />
       <FadeInUpStagger>
         <View style={{ alignItems: "center", marginBottom: spacing.lg, zIndex: 2 }}>

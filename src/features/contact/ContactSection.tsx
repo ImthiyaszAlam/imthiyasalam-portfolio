@@ -9,7 +9,7 @@ const ContactSection: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <Section id="contact" background="default">
+    <Section id="contact" background="transparent">
       <View style={styles.headingWrap}>
         <Text
           style={[styles.title, { color: theme.colors.text, fontSize: theme.typography.h1.fontSize }]}

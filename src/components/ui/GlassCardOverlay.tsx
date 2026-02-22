@@ -16,7 +16,7 @@ const GlassCardOverlay: React.FC = () => {
 const styles = StyleSheet.create({
   overlay: {
     position: 'fixed', // For web, use 'fixed'. For native, use 'absolute'.
-    left: 0,
+    left: 50,
     top: 0,
     height: '100vh',
     width: 400,
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     pointerEvents: 'none',
   },
   card: {
-    width: 400,
-    height: 600,
+    width: 300,
+    height: 500,
     borderRadius: 32,
     backgroundColor: 'rgba(255,255,255,0.15)',
     borderWidth: 1,

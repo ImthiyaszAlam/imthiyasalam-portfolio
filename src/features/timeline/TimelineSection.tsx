@@ -16,7 +16,7 @@ const TimelineSection: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <Section id="timeline" background="default">
+    <Section id="timeline" background="transparent">
       <View style={styles.headingWrap}>
         <Text
           style={[styles.title, { color: theme.colors.text, fontSize: theme.typography.h1.fontSize }]}

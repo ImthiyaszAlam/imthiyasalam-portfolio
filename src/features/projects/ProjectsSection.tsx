@@ -11,7 +11,7 @@ const ProjectsSection: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <Section id="projects">
+    <Section id="projects" background="transparent">
       <View style={[styles.headingWrap, { marginBottom: theme.spacing.xl }]}> 
         <Text
           style={[styles.title, { color: theme.colors.text, fontSize: theme.typography.h1.fontSize }]}
