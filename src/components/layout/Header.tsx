@@ -2,15 +2,16 @@ import React, { useCallback, useMemo } from 'react';
 import { Platform, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { IconSymbol } from '../../../components/ui/icon-symbol';
 import { SectionId, useNavigation } from '../../app/navigation/NavigationProvider';
+import GlassCard from '../../components/ui/GlassCard';
 import { useTheme } from '../../theme/ThemeContext';
 import Container from './Container';
 
 const MENU = [
-  { id: 'home', icon: 'house.fill' },
-  { id: 'skills', icon: 'chevron.right' }, // Use mapped icon
-  { id: 'projects', icon: 'chevron.left.forwardslash.chevron.right' }, // Use mapped icon
-  { id: 'timeline', icon: 'paperplane.fill' }, // Use mapped icon
-  { id: 'contact', icon: 'chevron.right' }, // Use mapped icon
+  { id: 'home', icon: 'house.fill', label: 'Home' },
+  { id: 'skills', icon: 'chevron.right', label: 'Skills' }, // Use mapped icon
+  { id: 'projects', icon: 'chevron.left.forwardslash.chevron.right', label: 'Projects' }, // Use mapped icon
+  { id: 'timeline', icon: 'paperplane.fill', label: 'Timeline' }, // Use mapped icon
+  { id: 'contact', icon: 'chevron.right', label: 'Contact' }, // Use mapped icon
 ];
 
 const HEADER_HEIGHT = 64;
@@ -54,12 +55,27 @@ const Header: React.FC = React.memo(() => {
               pressed && { opacity: 0.7 },
             ]}
           >
-            <IconSymbol
-              name={item.icon as any}
-              size={24}
-              color={activeSection === item.id ? theme.colors.primary : theme.colors.text}
-              style={activeSection === item.id ? styles.menuTextActive : styles.menuText}
-            />
+            <GlassCard style={{
+              borderRadius: 50,
+              margin: 0,
+              paddingHorizontal: 8,
+              paddingVertical: 2,
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 8,
+              borderWidth: 1,
+              borderColor: activeSection === item.id ? theme.colors.primary : '#ccc',
+              borderStyle: 'solid',
+              backgroundColor: activeSection === item.id ? theme.colors.primary : 'transparent',
+            }}>
+              <IconSymbol
+                name={item.icon as any}
+                size={24}
+                color={activeSection === item.id ? '#fff' : theme.colors.text}
+                style={activeSection === item.id ? styles.menuTextActive : styles.menuText}
+              />
+              <Text style={activeSection === item.id ? styles.menuTextActive : styles.menuText}>{item.label}</Text>
+            </GlassCard>
           </Pressable>
         ))}
       </View>
@@ -119,7 +135,7 @@ const styles = StyleSheet.create({
   menu: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 24,
+    gap: 10,
   },
   menuMobile: {
     gap: 12,
@@ -131,17 +147,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderBottomWidth: 0,
     borderBottomColor: 'transparent',
-    // cursor: 'pointer', // Not valid in React Native
-    // outlineStyle: 'none', // Not valid in React Native
   },
-  menuItemActive: {
-    backgroundColor: '#0070f3',
-    borderBottomWidth: 3,
-    borderBottomColor: '#0070f3',
-  },
+
   menuText: {
     fontSize: 16,
-    color: '#444',
+    color: '#d7caca',
     fontWeight: '500',
   },
   menuTextActive: {
@@ -149,7 +159,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textShadowColor: '#0070f3',
     textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
+    textShadowRadius: 16,
   },
 });
 

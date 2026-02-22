@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 export const heroSectionStyles = StyleSheet.create({
   section: {
     width: "100%",
-    // minHeight and height will be set dynamically
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -31,7 +30,7 @@ export const heroSectionStyles = StyleSheet.create({
   heroName: {
     fontSize: 32,
     fontWeight: "bold",
-    color: "#222",
+    color: "white",
   },
   heroRole: {
     fontSize: 20,
