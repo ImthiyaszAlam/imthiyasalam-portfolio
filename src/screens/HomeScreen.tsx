@@ -1,11 +1,13 @@
 import React from 'react';
 
 import GlassCardOverlay from '../components/ui/GlassCardOverlay';
+import AboutSection from '../features/about/AboutSection';
+import BlogSection from '../features/blog/BlogSection';
+import ContactSection from '../features/contact/ContactSection';
+import HeroSection from '../features/hero/HeroSection/HeroSection';
 import ProjectsSection from '../features/projects/ProjectsSection';
 import SkillsSection from '../features/skills/SkillsSection';
-import ContactSection from '../features/contact/ContactSection';
 import TimelineSection from '../features/timeline/TimelineSection';
-import HeroSection from '../features/hero/HeroSection/HeroSection';
 
 const HomeScreen: React.FC = () => {
   return (
@@ -15,6 +17,8 @@ const HomeScreen: React.FC = () => {
       </div>
       <div style={{ width: '75%', overflowY: 'auto', minWidth: 0 }}>
         <HeroSection />
+        <AboutSection />
+        <BlogSection />
         <SkillsSection />
         <ProjectsSection />
         <TimelineSection />

@@ -8,10 +8,12 @@ import Container from './Container';
 
 const MENU = [
   { id: 'home', icon: 'house.fill', label: 'Home' },
-  { id: 'skills', icon: 'chevron.right', label: 'Skills' }, // Use mapped icon
-  { id: 'projects', icon: 'chevron.left.forwardslash.chevron.right', label: 'Projects' }, // Use mapped icon
-  { id: 'timeline', icon: 'paperplane.fill', label: 'Timeline' }, // Use mapped icon
-  { id: 'contact', icon: 'chevron.right', label: 'Contact' }, // Use mapped icon
+  { id: 'about', icon: 'person.crop.circle', label: 'About' },
+  { id: 'blog', icon: 'book.fill', label: 'Blog' },
+  { id: 'skills', icon: 'chevron.right', label: 'Skills' },
+  { id: 'projects', icon: 'chevron.left.forwardslash.chevron.right', label: 'Projects' },
+  { id: 'timeline', icon: 'paperplane.fill', label: 'Timeline' },
+  { id: 'contact', icon: 'chevron.right', label: 'Contact' },
 ];
 
 const HEADER_HEIGHT = 64;
@@ -51,7 +53,7 @@ const Header: React.FC = React.memo(() => {
             accessibilityState={{ selected: activeSection === item.id }}
             style={({ pressed }) => [
               styles.menuItem,
-              activeSection === item.id && styles.menuItemActive,
+              // ...existing code...
               pressed && { opacity: 0.7 },
             ]}
           >

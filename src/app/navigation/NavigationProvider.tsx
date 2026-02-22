@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useRef, useState } from 'react';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
 
-export type SectionId = 'home' | 'skills' | 'projects' | 'timeline' | 'contact';
+export type SectionId = 'home' | 'about' | 'blog' | 'skills' | 'projects' | 'timeline' | 'contact';
 
 interface SectionRef {
   id: SectionId;
@@ -22,6 +22,8 @@ export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [activeSection, setActiveSection] = useState<SectionId>('home');
   const sectionRefs = useRef<Record<SectionId, React.RefObject<HTMLElement>>>({
     home: React.createRef<HTMLElement>(),
+    about: React.createRef<HTMLElement>(),
+    blog: React.createRef<HTMLElement>(),
     skills: React.createRef<HTMLElement>(),
     projects: React.createRef<HTMLElement>(),
     timeline: React.createRef<HTMLElement>(),
