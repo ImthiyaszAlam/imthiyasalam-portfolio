@@ -11,6 +11,7 @@ export type SectionProps = {
   disableContainer?: boolean;
   fullWidth?: boolean;
   style?: ViewProps['style'];
+  minHeight?: string | number;
 } & Omit<ViewProps, 'ref'>;
 
 const Section = forwardRef<View, SectionProps>(
@@ -43,12 +44,13 @@ const Section = forwardRef<View, SectionProps>(
     else if (background === 'transparent') backgroundColor = 'transparent';
     else backgroundColor = 'rgba(0,0,0,0.85)';
 
-    const paddingVertical = theme.spacing.lg;
+    const paddingVertical = 0; // Remove all vertical spacing
 
     const sectionStyles = [
       {
         backgroundColor,
         paddingVertical,
+        minHeight: rest.minHeight,
       },
       fullWidth ? styles.fullWidth : undefined,
       style,

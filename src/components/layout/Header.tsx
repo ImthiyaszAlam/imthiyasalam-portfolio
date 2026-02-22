@@ -16,7 +16,7 @@ const HEADER_HEIGHT = 64;
 
 const Header: React.FC = React.memo(() => {
   const { theme } = useTheme();
-  const { activeSection, scrollToSection } = useNavigation();
+  const { activeSection, scrollToSection, setActiveSection } = useNavigation();
   const { width } = useWindowDimensions();
   const isMobile = width < 768;
 
@@ -32,9 +32,10 @@ const Header: React.FC = React.memo(() => {
 
   const handleMenuPress = useCallback(
     (id: SectionId) => () => {
+      setActiveSection(id);
       scrollToSection(id);
     },
-    [scrollToSection]
+    [scrollToSection, setActiveSection]
   );
 
   const menu = useMemo(
@@ -53,7 +54,7 @@ const Header: React.FC = React.memo(() => {
             ]}
           >
             <Text
-              style={[styles.menuText, activeSection === item.id && { color: '#fff' }]}
+              style={[styles.menuText, activeSection === item.id && styles.menuTextActive]}
             >
               {item.label}
             </Text>
@@ -140,6 +141,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#444',
     fontWeight: '500',
+  },
+  menuTextActive: {
+    color: '#fff',
+    fontWeight: 'bold',
+    textShadowColor: '#0070f3',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
 });
 

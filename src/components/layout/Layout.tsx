@@ -8,11 +8,11 @@ const HEADER_HEIGHT = 64;
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { theme } = useTheme();
   return (
-    <View style={[styles.container, { backgroundColor: theme.colors.background }]}> 
+    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <Header />
       <ScrollView
         style={[styles.scroll, { backgroundColor: theme.colors.background }]}
-        contentContainerStyle={[styles.content, { paddingTop: HEADER_HEIGHT }]}
+        contentContainerStyle={[styles.content, { paddingTop: 0, paddingBottom: 0 }]}
         showsVerticalScrollIndicator={false}
       >
         {children}

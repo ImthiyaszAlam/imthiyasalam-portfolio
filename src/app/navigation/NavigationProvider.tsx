@@ -10,6 +10,7 @@ interface SectionRef {
 
 interface NavigationContextProps {
   activeSection: SectionId;
+  setActiveSection: (id: SectionId) => void;
   registerSection: (id: SectionId, ref: React.RefObject<HTMLElement>) => void;
   scrollToSection: (id: SectionId) => void;
 }
@@ -42,7 +43,7 @@ export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   }, []);
 
   return (
-    <NavigationContext.Provider value={{ activeSection, registerSection, scrollToSection }}>
+    <NavigationContext.Provider value={{ activeSection, setActiveSection, registerSection, scrollToSection }}>
       {children}
     </NavigationContext.Provider>
   );
