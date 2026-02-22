@@ -1,10 +1,10 @@
 import React from 'react';
 import { Dimensions, Text, View } from 'react-native';
-import Section from '../../components/layout/Section';
-import GlassCard from '../../components/ui/GlassCard';
-import HeroCTA from './HeroCTA/HeroCTA';
-import { heroSectionStyles } from './HeroSection/HeroSection.style';
-import HeroVisual from './HeroVisual';
+import Section from '../../../components/layout/Section';
+import GlassCard from '../../../components/ui/GlassCard';
+import HeroCTA from '../HeroCTA/HeroCTA';
+import HeroVisual from '../HeroVisual';
+import { heroSectionStyles } from './HeroSection.style';
 
 
 const HERO_NAME = 'Imthiyas Alam';
