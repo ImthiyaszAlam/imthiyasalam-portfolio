@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     transform: [{ scale: 1.02 }],
   },
   container: {
-    width: "100%",
+    // Removed width: '100%' to allow horizontal alignment in parent
   },
   row: {
     flexDirection: "row",

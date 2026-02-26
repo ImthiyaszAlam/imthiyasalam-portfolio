@@ -45,12 +45,12 @@ export const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, 
       >
         <GlowOrb active={hovered} />
         <Text style={[styles.title, { color: colors.text, marginBottom: spacing.md }]}>{category.title}</Text>
-        <View>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, maxWidth: '100%' }}>
           {category.skills.map((skill, idx) => (
             <SkillItem
               key={skill.name}
               skill={skill}
-              style={idx !== category.skills.length - 1 ? { marginBottom: spacing.md } : undefined}
+              style={{ marginRight: idx !== category.skills.length - 1 ? spacing.md : 0, minWidth: 100, marginBottom: 0 }}
             />
           ))}
         </View>
