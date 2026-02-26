@@ -32,6 +32,5 @@ const styles = StyleSheet.create({
   },
   content: {
     minHeight: '100%',
-    paddingBottom: 40,
   },
 });

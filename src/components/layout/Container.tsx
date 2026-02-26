@@ -47,11 +47,6 @@ Container.displayName = "Container";
 const styles = StyleSheet.create({
   base: {
     width: "100%",
-    // backgroundColor: 'rgba(0,0,0,0.55)', // glassmorphic black
-    // borderRadius: 20,
-    // borderWidth: 1,
-    // borderColor: 'rgba(255,255,255,0.12)',
-    // Web only: backdrop blur
     ...(typeof window !== 'undefined' ? {
       backdropFilter: 'blur(24px)',
       WebkitBackdropFilter: 'blur(24px)',
