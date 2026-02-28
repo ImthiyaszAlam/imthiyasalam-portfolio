@@ -11,21 +11,22 @@ import TimelineSection from '../features/timeline/TimelineSection';
 
 const HomeScreen: React.FC = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', width: '100vw', height: '100vh' }}>
-      <div style={{ width: '25%', minWidth: 0 }}>
-        <GlassCardOverlay />
+    <>
+      <GlassCardOverlay />
+      <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'row' }}>
+        <div style={{ width: '25%', minWidth: 0 }}></div>
+        <div style={{ width: '75%', minWidth: 0, overflowY: 'auto', height: '100vh' }}>
+          {/* <HeroSection /> */}
+          <AboutSection />
+          <BlogSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <TimelineSection />
+          <ContactSection />
+          {/* Other sections coming soon... */}
+        </div>
       </div>
-      <div style={{ width: '75%', overflowY: 'auto', minWidth: 0 }}>
-        <HeroSection />
-        <AboutSection />
-        <BlogSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <TimelineSection />
-        <ContactSection />
-        {/* Other sections coming soon... */}
-      </div>
-    </div>
+    </>
   );
 };
 

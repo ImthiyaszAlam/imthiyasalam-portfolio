@@ -27,18 +27,18 @@ export const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, 
         style={({ pressed }) => [
           styles.card,
           hovered && styles.hovered,
-          {
-            backgroundColor: theme.glassBackground || 'rgba(30,30,40,0.7)',
-            padding: spacing.lg,
-            shadowColor: theme.glowPrimary || colors.shadow,
-            ...shadows.card,
-            backdropFilter: 'blur(24px)',
-            borderWidth: 2,
-            borderColor: hovered ? theme.gradientBorder || '#6ef3ff' : 'rgba(255,255,255,0.12)',
-            boxShadow: hovered ? '0 8px 32px 0 rgba(80,200,255,0.25)' : '0 4px 16px 0 rgba(30,30,40,0.15)',
-            transform: [{ translateY: hovered ? -8 : 0 }, { scale: hovered ? 1.02 : 1 }],
-            transition: 'all 200ms cubic-bezier(0.4,0.2,0.2,1)',
-          },
+            hovered
+              ? {
+                  padding: spacing.lg,
+                  borderColor: theme.gradientBorder || '#6ef3ff',
+                  borderWidth: 1,
+                  boxShadow: 'none',
+                }
+              : {
+                  padding: spacing.lg,
+                  borderWidth: 0,
+                  boxShadow: 'none',
+                },
           style,
         ]}
         accessibilityRole="group"

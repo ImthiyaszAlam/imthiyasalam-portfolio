@@ -33,22 +33,24 @@ const GlassCardOverlay: React.FC = () => {
 
 const styles = StyleSheet.create({
   overlay: {
-    position: 'fixed', // For web, use 'fixed'. For native, use 'absolute'.
-    left: 50,
+    position: 'fixed',
     top: 0,
+    left: 0,
     height: '100vh',
-    width: 400,
-    zIndex: 1000,
+    width: '25vw',
+    minWidth: 200,
+    maxWidth: 400,
     display: 'flex',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'center',
     pointerEvents: 'none',
+    zIndex: 1000,
   },
   card: {
     width: 300,
     height: 500,
     borderRadius: 16,
-    backgroundColor: 'rgba(255,255,255,0.15)',
+    backgroundColor: 'rgba(118, 106, 106, 0.15)',
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.25)',
     display: 'flex',

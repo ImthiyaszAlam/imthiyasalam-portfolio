@@ -12,7 +12,7 @@ const HERO_DESCRIPTION = 'Android Engineer';
 
 const HeroSection: React.FC = () => {
   const windowHeight = Dimensions.get('window').height;
-  const sectionHeight = windowHeight - 64;
+  const sectionHeight = windowHeight;
 
   return (
     <Section

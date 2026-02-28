@@ -1,5 +1,8 @@
+
 import React, { useEffect, useRef } from 'react';
 import { useNavigation } from '../../app/navigation/NavigationProvider';
+import styles from './AboutSection.styles';
+
 
 const AboutSection: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
@@ -10,9 +13,9 @@ const AboutSection: React.FC = () => {
   }, [registerSection]);
 
   return (
-    <section id="about" ref={ref}>
-      <h2>About</h2>
-      <p>This is the About section. Add your content here.</p>
+    <section id="about" ref={ref} style={styles.container as React.CSSProperties}>
+      <h2 style={styles.title as React.CSSProperties}>About</h2>
+      <p style={styles.description as React.CSSProperties}>This is the About section. Add your content here.</p>
     </section>
   );
 };
