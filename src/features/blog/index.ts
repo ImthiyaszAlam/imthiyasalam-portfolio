@@ -1,1 +1,1 @@
-// Export blog feature modules here
+export { default as BlogSection } from "./BlogSection";
