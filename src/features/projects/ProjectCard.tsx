@@ -62,14 +62,7 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project }) => {
           >
             <Text style={styles.buttonText}>Live Demo</Text>
           </Pressable>
-          <Pressable
-            style={({ pressed }) => [styles.button, pressed && styles.buttonPressed]}
-            onPress={() => handleOpen(project.githubUrl)}
-            accessibilityRole="button"
-            accessibilityLabel={`Open GitHub for ${project.title}`}
-          >
-            <Text style={styles.buttonText}>GitHub</Text>
-          </Pressable>
+       
         </View>
       </View>
     </Card>
@@ -87,9 +80,9 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    height: '200%', // Cover 40% of the card height
-    borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8,
+    height: '100%', // Cover 40% of the card height
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
     zIndex: 2,
   },
   // ...removed imageWrapper and image styles...
@@ -99,8 +92,9 @@ const styles = StyleSheet.create({
     transitionProperty: Platform.OS === 'web' ? 'transform, box-shadow' : undefined,
     transitionDuration: Platform.OS === 'web' ? '0.2s' : undefined,
     cursor: Platform.OS === 'web' ? 'pointer' : undefined,
-    minHeight: 420,
-    borderRadius: 8,
+    height: 300,
+    width: 200,
+    borderRadius: 5,
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.12)',
     boxShadow: Platform.OS === 'web' ? '0 8px 32px 0 rgba(0,0,0,0.25)' : undefined,

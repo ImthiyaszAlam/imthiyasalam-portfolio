@@ -1,6 +1,5 @@
-import { Ionicons } from '@expo/vector-icons';
-import React, { useRef } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import { useTheme } from '../../theme/ThemeContext';
 import ProjectCard from './ProjectCard';
 import type { Project } from './types';
@@ -28,49 +27,32 @@ const styles = StyleSheet.create({
 
 const ProjectsGrid: React.FC<ProjectsGridProps> = React.memo(({ projects }) => {
   const { theme } = useTheme();
-  const scrollRef = useRef<ScrollView>(null);
-
-  const scrollBy = (offset: number) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({ x: offset, animated: true });
-    }
-  };
+  // Split projects into rows of 4 cards each (same logic as BlogSection)
+  const rows = [];
+  for (let i = 0; i < projects.length; i += 4) {
+    rows.push(projects.slice(i, i + 4));
+  }
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', width: '100%' }}>
-      <TouchableOpacity
-        onPress={() => scrollBy(-320)}
-        style={styles.arrowButton}
-        accessibilityLabel="Scroll left"
-      >
-        <Ionicons name="chevron-back" size={28} color={theme.colors.text} />
-      </TouchableOpacity>
-      <ScrollView
-        ref={scrollRef}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={[styles.gridWrap, { gap: theme.spacing.lg }]}
-        style={{ flex: 1 }}
-      >
-        {projects.map((project) => (
-          <View
-            key={project.id}
-            style={[
-              styles.cardCol,
-              { minWidth: 260, maxWidth: 300, marginRight: theme.spacing.lg },
-            ]}
-          >
-            <ProjectCard project={project} />
-          </View>
-        ))}
-      </ScrollView>
-      <TouchableOpacity
-        onPress={() => scrollBy(320)}
-        style={styles.arrowButton}
-        accessibilityLabel="Scroll right"
-      >
-        <Ionicons name="chevron-forward" size={28} color={theme.colors.text} />
-      </TouchableOpacity>
+    <View style={{ width: '100%', padding: 8 }}>
+      {rows.map((row, rowIdx) => (
+        <View
+          key={rowIdx}
+          style={{
+            flexDirection: 'row',
+            gap: 16,
+            justifyContent: 'flex-start',
+            marginBottom: rowIdx < rows.length - 1 ? 24 : 0,
+            width: '100%',
+          }}
+        >
+          {row.map((project, idx) => (
+            <View style={{ flex: 1, marginHorizontal: 8 }} key={project.id}>
+              <ProjectCard project={project} />
+            </View>
+          ))}
+        </View>
+      ))}
     </View>
   );
 });

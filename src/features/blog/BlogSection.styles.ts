@@ -46,9 +46,15 @@ const styles = StyleSheet.create({
   row: {
     display: "flex",
     flexDirection: "row",
-    gap: 16,
+    gap: 8,
     marginBottom: 0,
-    justifyContent: "center",
+    justifyContent: "space-evenly",
+    width: "100%",
+  },
+  card: {
+    minWidth: 260,
+    maxWidth: 340,
+    flex: 1,
   },
 });
 

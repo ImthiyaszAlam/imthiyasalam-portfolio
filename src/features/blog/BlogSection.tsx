@@ -13,9 +13,9 @@ const BlogSection: React.FC = () => {
     registerSection('blog', ref);
   }, [registerSection]);
 
-  // Split blogPosts into 3 rows of 4 cards each
+  // Split blogPosts into 2 rows of 4 cards each
   const rows = [];
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 2; i++) {
     rows.push(blogPosts.slice(i * 4, i * 4 + 4));
   }
 
@@ -33,7 +33,9 @@ const BlogSection: React.FC = () => {
             style={styles.row as React.CSSProperties}
           >
             {row.map((post) => (
-              <BlogCard key={post.id} post={post} />
+              <div key={post.id} style={{ flex: 1, margin: '0 8px' }}>
+                <BlogCard post={post} />
+              </div>
             ))}
           </div>
         ))}

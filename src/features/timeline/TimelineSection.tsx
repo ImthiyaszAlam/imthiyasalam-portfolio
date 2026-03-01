@@ -30,7 +30,7 @@ const TimelineSection: React.FC = () => {
           A brief journey through my milestones.
         </Text>
       </View>
-      <GlassCard style={{ width: '100%', maxWidth: 600, alignSelf: 'center' }}>
+      <GlassCard style={{ width: '100%', alignSelf: 'stretch', marginLeft: 0, marginRight: 0, paddingHorizontal: 0 }}>
         <TimelineList timeline={TIMELINE} />
       </GlassCard>
     </Section>
