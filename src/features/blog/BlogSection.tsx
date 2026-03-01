@@ -20,13 +20,17 @@ const BlogSection: React.FC = () => {
   }
 
   return (
-    <section id="blog" ref={ref} style={styles.container as React.CSSProperties}>
-      <h2 style={styles.title as React.CSSProperties}>Blog</h2>
-      <div style={{ marginBottom: 16 }}>
+    <section id="blog" ref={ref} style={styles.section as React.CSSProperties}>
+      <div style={styles.background as React.CSSProperties} />
+      <div style={styles.header as React.CSSProperties}>
+        <h2 style={styles.title as React.CSSProperties}>Blog</h2>
+        <p style={styles.subtitle as React.CSSProperties}>Latest articles, tutorials, and insights</p>
+      </div>
+      <div style={styles.gridWrap as React.CSSProperties}>
         {rows.map((row, rowIdx) => (
           <div
             key={rowIdx}
-            style={{ display: 'flex', flexDirection: 'row', gap: 16, marginBottom: 24 }}
+            style={styles.row as React.CSSProperties}
           >
             {row.map((post) => (
               <BlogCard key={post.id} post={post} />

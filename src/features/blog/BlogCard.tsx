@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     minHeight: 320,
     maxWidth: 300,
     minWidth: 220,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255,255,255,0.12)', // transparent
     boxShadow: Platform.OS === 'web' ? '0 2px 8px rgba(0,0,0,0.08)' : undefined,
   },
   contentBottom: {
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     padding: 16,
-    backgroundColor: 'rgba(255,255,255,0.85)',
+    backgroundColor: 'rgba(255,255,255,0.18)', // more transparent
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
   },

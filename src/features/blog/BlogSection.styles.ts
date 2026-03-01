@@ -2,27 +2,53 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    backgroundColor: "#fff",
-    borderRadius: 12,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 2,
-    marginBottom: 24,
+  section: {
+    position: "relative",
+    padding: 40,
+    borderRadius: 16,
+    overflow: "hidden",
+    marginBottom: 48,
+    minHeight: 600,
+  },
+  background: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+    zIndex: 0,
+  },
+  header: {
+    position: "relative",
+    zIndex: 2,
+    textAlign: "center",
+    marginBottom: 32,
   },
   title: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: "bold",
-    marginBottom: 12,
-    color: "#222",
+    color: "#0070f3",
+    marginBottom: 8,
   },
-  description: {
-    fontSize: 16,
-    color: "#555",
-    lineHeight: 22,
+  subtitle: {
+    fontSize: 18,
+    color: "#333",
+    marginBottom: 8,
+  },
+  gridWrap: {
+    position: "relative",
+    zIndex: 2,
+    display: "flex",
+    flexDirection: "column",
+    gap: 24,
+  },
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 16,
+    marginBottom: 0,
+    justifyContent: "center",
   },
 });
 
