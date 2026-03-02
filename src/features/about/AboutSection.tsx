@@ -1,8 +1,9 @@
 
 
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import Section from '../../components/layout/Section';
+import SectionHeader from '../../components/layout/SectionHeader';
 import GlassCard from '../../components/ui/GlassCard';
 import { useTheme } from '../../theme/ThemeContext';
 
@@ -18,19 +19,11 @@ const AboutSection: React.FC = () => {
 
   return (
     <Section id="about" background="transparent">
-      <View style={styles.headingWrap}>
-        <Text
-          style={[styles.title, { color: theme.colors.textPrimary, fontSize: theme.typography.h1.fontSize }]}
-          accessibilityRole="header"
-        >
-          {ABOUT.title}
-        </Text>
-        <Text style={[styles.subtitle, { color: theme.colors.textSecondary, fontSize: theme.typography.body.fontSize }]}
-          accessibilityRole="text"
-        >
-          {ABOUT.subtitle}
-        </Text>
-      </View>
+      <SectionHeader
+        title={ABOUT.title}
+        subtitle={ABOUT.subtitle}
+        accessibilityLabel={ABOUT.title}
+      />
       <GlassCard style={{ width: '100%', alignSelf: 'stretch', marginLeft: 0, marginRight: 0, paddingHorizontal: 0 }}>
         <Text style={[styles.description, { color: theme.colors.textPrimary, fontSize: theme.typography.body.fontSize }]}> 
           {ABOUT.description}

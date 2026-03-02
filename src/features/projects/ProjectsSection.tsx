@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Section from '../../components/layout/Section';
 import { useTheme } from '../../theme/ThemeContext';
 import ProjectsGrid from './ProjectsGrid';
 import { projects } from './data';
+
+import SectionHeader from '../../components/layout/SectionHeader';
 
 const subtitle = 'A selection of my best work, built with modern technologies.';
 
@@ -12,20 +14,11 @@ const ProjectsSection: React.FC = () => {
 
   return (
     <Section id="projects" background="transparent">
-      <View style={[styles.headingWrap, { marginBottom: theme.spacing.xl }]}> 
-        <Text
-          style={[styles.title, { color: theme.colors.textPrimary, fontSize: theme.typography.h1.fontSize }]}
-          accessibilityRole="header"
-          accessibilityLabel="Featured Projects"
-        >
-          Featured Projects
-        </Text>
-        <Text style={[styles.subtitle, { color: theme.colors.textSecondary, fontSize: theme.typography.body.fontSize }]}
-          accessibilityRole="text"
-        >
-          {subtitle}
-        </Text>
-      </View>
+      <SectionHeader
+        title="Featured Projects"
+        subtitle={subtitle}
+        accessibilityLabel="Featured Projects"
+      />
       <ProjectsGrid projects={projects} />
     </Section>
   );

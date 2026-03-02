@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Section from '../../components/layout/Section';
+import SectionHeader from '../../components/layout/SectionHeader';
 import GlassCard from '../../components/ui/GlassCard';
 import { useTheme } from '../../theme/ThemeContext';
 import { ContactForm } from './ContactForm';
@@ -10,19 +11,11 @@ const ContactSection: React.FC = () => {
 
   return (
     <Section id="contact" background="transparent">
-      <View style={styles.headingWrap}>
-        <Text
-          style={[styles.title, { color: theme.colors.textPrimary, fontSize: theme.typography.h1.fontSize }]}
-          accessibilityRole="header"
-        >
-          Contact
-        </Text>
-        <Text style={[styles.subtitle, { color: theme.colors.textSecondary, fontSize: theme.typography.body.fontSize }]}
-          accessibilityRole="text"
-        >
-          Get in touch using the form below.
-        </Text>
-      </View>
+      <SectionHeader
+        title="Contact"
+        subtitle="Get in touch using the form below."
+        accessibilityLabel="Contact"
+      />
       <GlassCard style={{ width: '100%', maxWidth: 480, alignSelf: 'center' }}>
         <ContactForm />
       </GlassCard>

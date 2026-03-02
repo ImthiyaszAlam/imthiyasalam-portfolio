@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text } from '../atoms/Text';
+import SectionHeader from '../layout/SectionHeader';
 
 export const HeroSection: React.FC = () => (
   <View style={styles.container}>
-    <Text style={styles.title}>Welcome to My Portfolio</Text>
-    <Text style={styles.subtitle}>React Native Developer</Text>
+    <SectionHeader
+      title="Welcome to My Portfolio"
+      subtitle="React Native Developer"
+    />
   </View>
 );
 

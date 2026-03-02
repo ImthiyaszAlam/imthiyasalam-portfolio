@@ -1,6 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View, ViewStyle } from "react-native";
+import { StyleSheet, ViewStyle } from "react-native";
 import Section from "../../components/layout/Section";
+import SectionHeader from '../../components/layout/SectionHeader';
 import AnimatedBackground from '../../components/ui/glow/AnimatedBackground';
 import { useTheme } from "../../theme/ThemeContext";
 import { SkillsGrid } from "./SkillsGrid";
@@ -18,12 +19,12 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ subtitle, style })
   return (
     <Section id="skills" background="transparent" style={[styles.section, style]}>
       <AnimatedBackground />
-      <View style={{ alignItems: "center", marginBottom: spacing.lg, zIndex: 2 }}>
-        <Text style={{ ...styles.title, color: theme.colors.textPrimary }}>Technical Expertise</Text>
-        <Text style={{ ...styles.subtitle, color: theme.colors.textSecondary }}>
-          {subtitle || "Technologies I use to build scalable, high-performance systems."}
-        </Text>
-      </View>
+      <SectionHeader
+        title="Technical Expertise"
+        subtitle={subtitle || "Technologies I use to build scalable, high-performance systems."}
+        accessibilityLabel="Technical Expertise"
+        style={{ marginBottom: spacing.lg, zIndex: 2 }}
+      />
       <SkillsGrid categories={skillCategories} />
     </Section>
   );

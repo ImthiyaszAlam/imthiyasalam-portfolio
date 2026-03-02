@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Section from '../../components/layout/Section';
+import SectionHeader from '../../components/layout/SectionHeader';
 import TimelineList from '../../components/organisms/TimelineList';
 import GlassCard from '../../components/ui/GlassCard';
 import { useTheme } from '../../theme/ThemeContext';
@@ -21,19 +22,11 @@ const TimelineSection: React.FC = () => {
 
   return (
     <Section id="timeline" background="transparent">
-      <View style={styles.headingWrap}>
-        <Text
-          style={[styles.title, { color: theme.colors.textPrimary, fontSize: theme.typography.h1.fontSize }]}
-          accessibilityRole="header"
-        >
-          Timeline
-        </Text>
-        <Text style={[styles.subtitle, { color: theme.colors.textSecondary, fontSize: theme.typography.body.fontSize }]}
-          accessibilityRole="text"
-        >
-          A brief journey through my milestones.
-        </Text>
-      </View>
+      <SectionHeader
+        title="Timeline"
+        subtitle="A brief journey through my milestones."
+        accessibilityLabel="Timeline"
+      />
       <GlassCard style={{ width: '100%', alignSelf: 'stretch', marginLeft: 0, marginRight: 0, paddingHorizontal: 0 }}>
         <TimelineList timeline={TIMELINE} />
       </GlassCard>

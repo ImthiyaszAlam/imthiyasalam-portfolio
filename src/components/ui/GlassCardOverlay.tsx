@@ -50,9 +50,9 @@ const styles = StyleSheet.create({
     zIndex: 1000,
   },
   card: {
-    width: 300,
+    width: 250,
     height: 500,
-    borderRadius: 16,
+    borderRadius: 8,
     backgroundColor: 'rgba(118, 106, 106, 0.15)',
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.25)',
@@ -64,11 +64,11 @@ const styles = StyleSheet.create({
   },
   profileImageContainer: {
     width: '100%',
-    padding: 16,
+    padding: 0,
     height: '50%',
     overflow: 'hidden',
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
   },
   textContainer: {
     width: '100%',
