@@ -27,12 +27,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: "bold",
-    // color will be set from theme in BlogSection.tsx
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 18,
-    // color will be set from theme in BlogSection.tsx
     marginBottom: 8,
   },
   gridWrap: {
@@ -40,7 +38,7 @@ const styles = StyleSheet.create({
     zIndex: 2,
     display: "flex",
     flexDirection: "column",
-    gap: 24,
+    gap: 8,
     width: "100%",
   },
   row: {

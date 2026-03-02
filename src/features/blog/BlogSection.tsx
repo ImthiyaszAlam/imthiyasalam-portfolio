@@ -1,10 +1,10 @@
 
+import { useTheme } from '@/src/theme';
 import React, { useEffect, useRef } from 'react';
 import { useNavigation } from '../../app/navigation/NavigationProvider';
 import BlogCard from './BlogCard';
 import styles from './BlogSection.styles';
 import { blogPosts } from './data';
-import { useTheme } from '@/src/theme';
 
 const BlogSection: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
@@ -33,10 +33,7 @@ const BlogSection: React.FC = () => {
         {rows.map((row, rowIdx) => (
           <div
             key={rowIdx}
-            style={{
-              ...styles.row,
-              ...(rowIdx !== rows.length - 1 ? { marginBottom: 8 } : {}),
-            } as React.CSSProperties}
+              style={styles.row as React.CSSProperties}
           >
             {row.map((post) => (
               <div key={post.id} style={styles.card as React.CSSProperties}>
