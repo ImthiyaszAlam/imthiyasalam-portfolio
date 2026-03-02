@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { View, Text, ViewStyle } from "react-native";
+import { Text, View, ViewStyle } from "react-native";
 import { IconSymbol } from "../../../../components/ui/icon-symbol";
 import { useTheme } from "../../../theme/ThemeContext";
 import { Skill } from "../types";

@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, ViewStyle } from "react-native";
 import Section from "../../components/layout/Section";
-import FadeInUpStagger from '../../components/ui/animation/FadeInUpStagger';
 import AnimatedBackground from '../../components/ui/glow/AnimatedBackground';
 import { useTheme } from "../../theme/ThemeContext";
 import { SkillsGrid } from "./SkillsGrid";
@@ -17,17 +16,15 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ subtitle, style })
   const { spacing } = theme;
 
   return (
-    <Section id="skills" background="transparent" style={[styles.section, style]} accessibilityRole="section">
+    <Section id="skills" background="transparent" style={[styles.section, style]}>
       <AnimatedBackground />
-      <FadeInUpStagger>
-        <View style={{ alignItems: "center", marginBottom: spacing.lg, zIndex: 2 }}>
-          <Text style={styles.title}>Technical Expertise</Text>
-          <Text style={styles.subtitle}>
-            {subtitle || "Technologies I use to build scalable, high-performance systems."}
-          </Text>
-        </View>
-        <SkillsGrid categories={skillCategories} />
-      </FadeInUpStagger>
+      <View style={{ alignItems: "center", marginBottom: spacing.lg, zIndex: 2 }}>
+        <Text style={styles.title}>Technical Expertise</Text>
+        <Text style={styles.subtitle}>
+          {subtitle || "Technologies I use to build scalable, high-performance systems."}
+        </Text>
+      </View>
+      <SkillsGrid categories={skillCategories} />
     </Section>
   );
 };

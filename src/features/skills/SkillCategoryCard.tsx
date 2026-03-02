@@ -1,7 +1,5 @@
 import React from "react";
-import { Pressable, Text, View, ViewStyle } from "react-native";
-import FadeInUpStagger from '../../components/ui/animation/FadeInUpStagger';
-import GlowOrb from '../../components/ui/glow/GlowOrb';
+import { Text, View, ViewStyle } from "react-native";
 import { useTheme } from "../../theme/ThemeContext";
 import styles from "./SkillCategoryCard.styles";
 import { SkillItem } from "./SkillItem/SkillItem";
@@ -16,47 +14,20 @@ export const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, 
   const { theme } = useTheme();
   const { colors, spacing, shadows } = theme;
 
-  // Card hover state (for web)
-  const [hovered, setHovered] = React.useState(false);
-
   return (
-    <FadeInUpStagger>
-      <Pressable
-        onHoverIn={() => setHovered(true)}
-        onHoverOut={() => setHovered(false)}
-        style={({ pressed }) => [
-          styles.card,
-          { backgroundColor: colors.background },
-          hovered && styles.hovered,
-            hovered
-              ? {
-                  padding: spacing.lg,
-                  borderColor: '#6ef3ff',
-                  borderWidth: 1,
-                  boxShadow: 'none',
-                }
-              : {
-                  padding: spacing.lg,
-                  borderWidth: 0,
-                  boxShadow: 'none',
-                },
-          style,
-        ]}
-        // accessibilityRole="group" // 'group' is not a valid AccessibilityRole in React Native
-      >
-        <GlowOrb active={hovered} />
-        <Text style={[styles.title, { color: colors.textPrimary, marginBottom: spacing.md }]}>{category.title}</Text>
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, maxWidth: '100%' }}>
-          {category.skills.map((skill, idx) => (
-            <SkillItem
-              key={skill.name}
-              skill={skill}
-              style={{ marginRight: idx !== category.skills.length - 1 ? spacing.md : 0, minWidth: 100, marginBottom: 0 }}
-            />
-          ))}
-        </View>
-      </Pressable>
-    </FadeInUpStagger>
+    <View style={[styles.card, { backgroundColor: colors.background, padding: spacing.lg, borderWidth: 0, boxShadow: 'none' }, style]}>
+      {/* Removed GlowOrb and hover logic */}
+      <Text style={[styles.title, { color: colors.textPrimary, marginBottom: spacing.md }]}>{category.title}</Text>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, maxWidth: '100%' }}>
+        {category.skills.map((skill, idx) => (
+          <SkillItem
+            key={skill.name}
+            skill={skill}
+            style={{ marginRight: idx !== category.skills.length - 1 ? spacing.md : 0, minWidth: 100, marginBottom: 0 }}
+          />
+        ))}
+      </View>
+    </View>
   );
 };
 

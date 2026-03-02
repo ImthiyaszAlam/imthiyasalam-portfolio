@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { StyleSheet, View, ViewStyle } from "react-native";
-import FadeInUpStagger from '../../components/ui/animation/FadeInUpStagger';
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { useTheme } from "../../theme/ThemeContext";
 import { SkillCategoryCard } from "./SkillCategoryCard";
@@ -17,15 +16,13 @@ const SkillsGridComponent: React.FC<SkillsGridProps> = ({ categories, style }) =
   const breakpoint = useBreakpoint();
 
   return (
-    <FadeInUpStagger>
-      <View style={[styles.grid, { gap: spacing.lg, flexDirection: 'column' }, style]}>
-        {categories.map((cat) => (
-          <View key={cat.title} style={{ width: '100%', marginBottom: spacing.lg }}>
-            <SkillCategoryCard category={cat} />
-          </View>
-        ))}
-      </View>
-    </FadeInUpStagger>
+    <View style={[styles.grid, { gap: spacing.lg, flexDirection: 'column' }, style]}>
+      {categories.map((cat) => (
+        <View key={cat.title} style={{ width: '100%', marginBottom: spacing.lg }}>
+          <SkillCategoryCard category={cat} />
+        </View>
+      ))}
+    </View>
   );
 };
 
