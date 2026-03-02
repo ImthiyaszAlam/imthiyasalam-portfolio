@@ -4,10 +4,10 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   section: {
     position: "relative",
-    borderRadius: 16,
     overflow: "hidden",
     marginBottom: 48,
     minHeight: 600,
+    // width and borderRadius removed for Section consistency
   },
   background: {
     position: "absolute",

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GlassCardOverlay from '../components/ui/GlassCardOverlay';
+// ...existing code...
 import AboutSection from '../features/about/AboutSection';
 import BlogSection from '../features/blog/BlogSection';
 import ContactSection from '../features/contact/ContactSection';
@@ -10,22 +10,16 @@ import TimelineSection from '../features/timeline/TimelineSection';
 
 const HomeScreen: React.FC = () => {
   return (
-    <>
-      <GlassCardOverlay />
-      <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'row' }}>
-        <div style={{ width: '22%', minWidth: 0 }}></div>
-        <div style={{ width: '77%', minWidth: 0, overflowY: 'auto', overflowX: 'hidden', height: '100vh' }}>
-          {/* <HeroSection /> */}
-          <AboutSection />
-          <BlogSection />
-          <SkillsSection />
-          <ProjectsSection />
-          <TimelineSection />
-          <ContactSection />
-          {/* Other sections coming soon... */}
-        </div>
-      </div>
-    </>
+    <div style={{ width: '100vw', minHeight: '100vh', overflowX: 'hidden' }}>
+      {/* <HeroSection /> */}
+      <AboutSection />
+      <BlogSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <TimelineSection />
+      <ContactSection />
+      {/* Other sections coming soon... */}
+    </div>
   );
 };
 
