@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { useTheme } from '../../theme/ThemeContext';
+import { useTheme } from '../../../theme/ThemeContext';
 import { heroContentStyles } from './HeroContent.style';
 
 interface HeroContentProps {
@@ -17,15 +17,13 @@ export const HeroContent: React.FC<HeroContentProps> = ({ name, role, descriptio
 		<View style={heroContentStyles.container} accessible accessibilityRole="header">
 			<Text
 				accessibilityRole="header"
-				style={[heroContentStyles.heading, { color: colors.text }]}
-				accessibilityLevel={1}
+				style={[heroContentStyles.heading, { color: colors.textPrimary }]}
 			>
 				{name}
 			</Text>
 			<Text
 				accessibilityRole="header"
-				style={[heroContentStyles.role, { color: colors.primary }]}
-				accessibilityLevel={2}
+				style={[heroContentStyles.role, { color: colors.textSecondary }]}
 			>
 				{role}
 			</Text>

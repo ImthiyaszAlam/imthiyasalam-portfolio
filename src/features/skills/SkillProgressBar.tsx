@@ -40,7 +40,7 @@ export const SkillProgressBar: React.FC<SkillProgressBarProps> = ({
         style={[
           styles.fill,
           animatedStyle,
-          { backgroundColor: colors.primary, height: BAR_HEIGHT },
+          { backgroundColor: colors.textSecondary, height: BAR_HEIGHT },
         ]}
       />
     </View>

@@ -30,7 +30,10 @@ const BlogSection: React.FC = () => {
         {rows.map((row, rowIdx) => (
           <div
             key={rowIdx}
-            style={styles.row as React.CSSProperties}
+            style={{
+              ...styles.row,
+              ...(rowIdx !== rows.length - 1 ? { marginBottom: 8 } : {}),
+            } as React.CSSProperties}
           >
             {row.map((post) => (
               <div key={post.id} style={styles.card as React.CSSProperties}>

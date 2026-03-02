@@ -1,6 +1,6 @@
-import React, { createContext, ReactNode, useContext, useMemo, useState } from 'react';
-import { Appearance } from 'react-native';
-import { darkColors, lightColors, type ColorPalette } from './colors';
+import React, { createContext, ReactNode, useContext, useMemo } from 'react';
+
+import { darkColors, type ColorPalette } from './colors';
 import { radii, shadows, spacing } from './theme';
 import { typography } from './typography';
 
@@ -15,13 +15,11 @@ export interface Theme {
   radii: typeof radii;
 }
 
-const getColors = (mode: ThemeMode) => (mode === 'dark' ? darkColors : lightColors);
-
-const defaultMode: ThemeMode = Appearance.getColorScheme?.() === 'dark' ? 'dark' : 'light';
+const getColors = () => darkColors;
 
 const defaultTheme: Theme = {
-  mode: defaultMode,
-  colors: getColors(defaultMode),
+  mode: 'dark',
+  colors: getColors(),
   typography,
   spacing,
   shadows,
@@ -37,22 +35,20 @@ export const ThemeContext = createContext<{
 });
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [mode, setMode] = useState<ThemeMode>(defaultMode);
-
   const theme = useMemo(
     () => ({
-      mode,
-      colors: getColors(mode),
+      mode: 'dark',
+      colors: getColors(),
       typography,
       spacing,
       shadows,
       radii,
     }),
-    [mode]
+    []
   );
 
   return (
-    <ThemeContext.Provider value={{ theme, setMode }}>
+    <ThemeContext.Provider value={{ theme, setMode: () => {} }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -12,7 +12,7 @@ const ContactSection: React.FC = () => {
     <Section id="contact" background="transparent">
       <View style={styles.headingWrap}>
         <Text
-          style={[styles.title, { color: theme.colors.text, fontSize: theme.typography.h1.fontSize }]}
+          style={[styles.title, { color: theme.colors.textPrimary, fontSize: theme.typography.h1.fontSize }]}
           accessibilityRole="header"
         >
           Contact

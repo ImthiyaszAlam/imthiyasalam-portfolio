@@ -26,11 +26,12 @@ export const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, 
         onHoverOut={() => setHovered(false)}
         style={({ pressed }) => [
           styles.card,
+          { backgroundColor: colors.background },
           hovered && styles.hovered,
             hovered
               ? {
                   padding: spacing.lg,
-                  borderColor: theme.gradientBorder || '#6ef3ff',
+                  borderColor: '#6ef3ff',
                   borderWidth: 1,
                   boxShadow: 'none',
                 }
@@ -41,10 +42,10 @@ export const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, 
                 },
           style,
         ]}
-        accessibilityRole="group"
+        // accessibilityRole="group" // 'group' is not a valid AccessibilityRole in React Native
       >
         <GlowOrb active={hovered} />
-        <Text style={[styles.title, { color: colors.text, marginBottom: spacing.md }]}>{category.title}</Text>
+        <Text style={[styles.title, { color: colors.textPrimary, marginBottom: spacing.md }]}>{category.title}</Text>
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, maxWidth: '100%' }}>
           {category.skills.map((skill, idx) => (
             <SkillItem

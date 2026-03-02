@@ -14,7 +14,7 @@ const ProjectsSection: React.FC = () => {
     <Section id="projects" background="transparent">
       <View style={[styles.headingWrap, { marginBottom: theme.spacing.xl }]}> 
         <Text
-          style={[styles.title, { color: theme.colors.text, fontSize: theme.typography.h1.fontSize }]}
+          style={[styles.title, { color: theme.colors.textPrimary, fontSize: theme.typography.h1.fontSize }]}
           accessibilityRole="header"
           accessibilityLabel="Featured Projects"
         >
