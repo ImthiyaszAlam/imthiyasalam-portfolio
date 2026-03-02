@@ -33,7 +33,9 @@ const BlogSection: React.FC = () => {
             style={styles.row as React.CSSProperties}
           >
             {row.map((post) => (
-              <BlogCard key={post.id} post={post} />
+              <div key={post.id} style={{ flex: 1, margin: '0 8px' }}>
+                <BlogCard post={post} />
+              </div>
             ))}
           </div>
         ))}
