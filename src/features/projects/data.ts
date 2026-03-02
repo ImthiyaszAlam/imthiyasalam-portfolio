@@ -90,4 +90,26 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/yourusername/finance-dashboard",
     featured: false,
   },
+  {
+    id: "9",
+    title: "Travel Planner",
+    description:
+      "A web app to plan trips, manage itineraries, and explore destinations with interactive maps.",
+    techStack: ["React", "TypeScript", "Mapbox", "Firebase"],
+    image: "https://via.placeholder.com/400x240?text=Travel+Planner",
+    liveUrl: "https://your-travelplanner.com",
+    githubUrl: "https://github.com/yourusername/travel-planner",
+    featured: false,
+  },
+  {
+    id: "10",
+    title: "Music Streaming App",
+    description:
+      "A modern music streaming platform with playlists, recommendations, and Spotify integration.",
+    techStack: ["Next.js", "TypeScript", "Spotify API", "TailwindCSS"],
+    image: "https://via.placeholder.com/400x240?text=Music+Streaming+App",
+    liveUrl: "https://your-musicstream.com",
+    githubUrl: "https://github.com/yourusername/music-streaming-app",
+    featured: false,
+  },
 ];

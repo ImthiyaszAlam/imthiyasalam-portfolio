@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
 
 const ProjectsGrid: React.FC<ProjectsGridProps> = React.memo(({ projects }) => {
   const { theme } = useTheme();
-  // Split projects into rows of 4 cards each (same logic as BlogSection)
+  // Split projects into rows of 5 cards each
   const rows = [];
-  for (let i = 0; i < projects.length; i += 4) {
-    rows.push(projects.slice(i, i + 4));
+  for (let i = 0; i < projects.length; i += 5) {
+    rows.push(projects.slice(i, i + 5));
   }
 
   return (
@@ -48,8 +48,8 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = React.memo(({ projects }) => {
           {row.map((project, idx) => (
             <View
               style={{
-                width: '25%',
-                minWidth: 200,
+                width: '20%',
+                minWidth: 160,
                 marginRight: idx < row.length - 1 ? 8 : 0,
               }}
               key={project.id}
