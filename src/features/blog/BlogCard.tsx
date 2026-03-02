@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     overflow: Platform.OS === 'web' ? 'visible' : 'hidden',
     borderRadius: 5,
     height: 220, // reduced height
-    width: 200,
+    flex: 1,
     backgroundColor: 'rgba(255,255,255,0.12)', // transparent
     boxShadow: Platform.OS === 'web' ? '0 2px 8px rgba(0,0,0,0.08)' : undefined,
   },

@@ -4,7 +4,6 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   section: {
     position: "relative",
-    padding: 40,
     borderRadius: 16,
     overflow: "hidden",
     marginBottom: 48,
@@ -42,13 +41,14 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     gap: 24,
+    width: "100%",
   },
   row: {
     display: "flex",
     flexDirection: "row",
     gap: 8,
     marginBottom: 0,
-    justifyContent: "space-evenly",
+    justifyContent: "stretch",
     width: "100%",
   },
   card: {
