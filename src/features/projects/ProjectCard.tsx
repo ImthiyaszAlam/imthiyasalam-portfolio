@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     transitionDuration: Platform.OS === 'web' ? '0.2s' : undefined,
     cursor: Platform.OS === 'web' ? 'pointer' : undefined,
     height: 300,
-    width: 200,
+    // width removed for flexible grid sizing
     borderRadius: 5,
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.12)',
@@ -158,6 +158,10 @@ const styles = StyleSheet.create({
     marginRight: 8,
     borderWidth: 1,
     borderColor: '#fff',
+  },
+  buttonPressed: {
+    opacity: 0.7,
+    transform: [{ scale: 0.97 }],
   },
   buttonText: {
     color: '#fff',

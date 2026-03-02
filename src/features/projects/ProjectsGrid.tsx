@@ -40,14 +40,20 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = React.memo(({ projects }) => {
           key={rowIdx}
           style={{
             flexDirection: 'row',
-            gap: 16,
             justifyContent: 'flex-start',
-            marginBottom: rowIdx < rows.length - 1 ? 24 : 0,
+            marginBottom: rowIdx < rows.length - 1 ? 8 : 0,
             width: '100%',
           }}
         >
           {row.map((project, idx) => (
-            <View style={{ flex: 1, marginHorizontal: 8 }} key={project.id}>
+            <View
+              style={{
+                width: '25%',
+                minWidth: 200,
+                marginRight: idx < row.length - 1 ? 8 : 0,
+              }}
+              key={project.id}
+            >
               <ProjectCard project={project} />
             </View>
           ))}
