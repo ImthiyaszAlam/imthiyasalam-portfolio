@@ -10,6 +10,10 @@ const TIMELINE = [
   { year: '2024', title: 'Graduated', description: 'Completed my degree in Computer Science.' },
   { year: '2022', title: 'Internship', description: 'Worked as a software engineering intern at TechCorp.' },
   { year: '2020', title: 'First App', description: 'Launched my first mobile application.' },
+  { year: '2019', title: 'Open Source Contributor', description: 'Contributed to open source projects and communities.' },
+  { year: '2018', title: 'Hackathon Winner', description: 'Won first place in a national hackathon.' },
+  { year: '2017', title: 'Started Coding', description: 'Wrote my first lines of code.' },
+  { year: '2016', title: 'High School Graduate', description: 'Graduated from high school with honors.' },
 ];
 
 const TimelineSection: React.FC = () => {

@@ -15,20 +15,40 @@ type TimelineListProps = {
 
 const TimelineList: React.FC<TimelineListProps> = ({ timeline }) => (
   <View style={styles.list}>
-    {Array.from({ length: Math.ceil(timeline.length / 2) }).map((_, rowIdx) => {
-      const rowItems = timeline.slice(rowIdx * 2, rowIdx * 2 + 2);
-      return (
-        <View key={rowIdx} style={styles.row}>
-          {rowItems.map((item) => (
-            <GlassCard key={item.year + item.title} style={styles.item}>
-              <Text style={styles.year}>{item.year}</Text>
-              <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.desc}>{item.description}</Text>
-            </GlassCard>
-          ))}
-        </View>
-      );
-    })}
+    <View style={styles.row}>
+      {timeline.slice(0, 4).map((item, idx) => (
+        <GlassCard
+          key={item.year + item.title}
+          style={[
+            styles.item,
+            idx % 2 === 0
+              ? { backgroundColor: '#e3f2fd' } // odd (0,2)
+              : { backgroundColor: '#fce4ec' } // even (1,3)
+          ]}
+        >
+          <Text style={styles.year}>{item.year}</Text>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.desc}>{item.description}</Text>
+        </GlassCard>
+      ))}
+    </View>
+    <View style={styles.row}>
+      {timeline.slice(4, 8).map((item, idx) => (
+        <GlassCard
+          key={item.year + item.title}
+          style={[
+            styles.item,
+            idx % 2 === 0
+              ? { backgroundColor: '#fce4ec' } // odd (0,2) reversed
+              : { backgroundColor: '#e3f2fd' } // even (1,3) reversed
+          ]}
+        >
+          <Text style={styles.year}>{item.year}</Text>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.desc}>{item.description}</Text>
+        </GlassCard>
+      ))}
+    </View>
   </View>
 );
 
@@ -36,28 +56,31 @@ export default TimelineList;
 
 const styles = StyleSheet.create({
   list: {
-    marginVertical: 16,
-    gap: 24,
+    marginVertical: 0,
+    gap: 0,
   },
   row: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'flex-start',
     alignItems: 'stretch',
-    marginBottom: 0,
     width: '100%',
     marginLeft: 0,
     marginRight: 0,
+    marginBottom: 0,
+    gap: 0,
   },
   item: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    padding: 16,
-    marginHorizontal: 8,
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 2 },
+     width: '25%',
+     backgroundColor: '#f5f5f5',
+     borderRadius: 0,
+     padding: 16,
+     borderWidth:1,
+     marginHorizontal: 0,
+     shadowColor: '#000',
+     shadowOpacity: 0.05,
+     shadowRadius: 4,
+     shadowOffset: { width: 0, height: 2 },
+     height: 220, // Increased height
   },
   year: {
     fontWeight: 'bold',
