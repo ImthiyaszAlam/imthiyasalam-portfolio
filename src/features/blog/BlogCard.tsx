@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
     margin: 0,
     overflow: Platform.OS === 'web' ? 'visible' : 'hidden',
     borderRadius: 5,
-    height: 220, // reduced height
-    width: 200,
+    height: 220,
+    width: '25%',
     backgroundColor: 'rgba(255,255,255,0.12)', // transparent
     boxShadow: Platform.OS === 'web' ? '0 2px 8px rgba(0,0,0,0.08)' : undefined,
   },

@@ -4,7 +4,6 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   section: {
     position: "relative",
-    padding: 40,
     borderRadius: 16,
     overflow: "hidden",
     marginBottom: 48,
