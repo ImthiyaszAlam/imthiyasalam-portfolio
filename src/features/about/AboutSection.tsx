@@ -13,9 +13,9 @@ const AboutSection: React.FC = () => {
   }, [registerSection]);
 
   return (
-    <section id="about" ref={ref} style={styles.container as React.CSSProperties}>
-      <h2 style={styles.title as React.CSSProperties}>About</h2>
-      <p style={styles.description as React.CSSProperties}>This is the About section. Add your content here.</p>
+    <section id="about" ref={ref} style={styles.container}>
+      <h2 style={styles.title}>About</h2>
+      <p style={styles.description}>This is the About section. Add your content here.</p>
     </section>
   );
 };

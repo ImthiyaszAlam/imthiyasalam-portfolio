@@ -36,9 +36,6 @@ const styles = StyleSheet.create({
   section: {
     width: "100%",
     alignItems: "center",
-    paddingVertical: 64,
-    paddingHorizontal: 24,
-    minHeight: 600,
     position: 'relative',
     overflow: 'hidden',
     justifyContent: 'center',

@@ -5,4 +5,5 @@ export const spacing = {
   md: 16,
   lg: 24,
   xl: 32,
+  sectionVertical: 16, // Global vertical spacing for sections
 };

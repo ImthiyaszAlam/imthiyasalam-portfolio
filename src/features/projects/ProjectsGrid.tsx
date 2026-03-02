@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   gridWrap: {
     flexDirection: 'row',
     alignItems: 'stretch',
-    paddingVertical: 8,
     paddingHorizontal: 8,
   },
   cardCol: {
@@ -34,7 +33,7 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = React.memo(({ projects }) => {
   }
 
   return (
-    <View style={{ width: '100%', padding: 8 }}>
+    <View style={{ width: '100%' }}>
       {rows.map((row, rowIdx) => (
         <View
           key={rowIdx}

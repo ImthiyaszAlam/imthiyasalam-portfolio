@@ -25,11 +25,18 @@ const Container: React.FC<ContainerProps> = React.memo(
     // Responsive horizontal padding: use theme.spacing (e.g., 16 for mobile, 24 for tablet, 32 for desktop)
     // For simplicity, use a fixed value from theme.spacing, or you can enhance with breakpoints if available
     const horizontalPadding = theme.spacing?.horizontal ?? theme.spacing?.md ?? 16;
+    // Global vertical spacing for sections
+    const verticalPadding = theme.spacing?.sectionVertical ?? 16;
 
     // Compose styles
     const containerStyle: StyleProp<ViewStyle> = [
       styles.base,
-      { alignSelf: "center", width: "100%", paddingHorizontal: horizontalPadding },
+      {
+        alignSelf: "center",
+        width: "100%",
+        paddingHorizontal: horizontalPadding,
+        paddingVertical: verticalPadding,
+      },
       !fluid && { maxWidth },
       style,
     ];
