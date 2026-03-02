@@ -1,8 +1,6 @@
 import React, { memo } from "react";
-import { Pressable, Text, View, ViewStyle } from "react-native";
+import { View, Text, ViewStyle } from "react-native";
 import { IconSymbol } from "../../../../components/ui/icon-symbol";
-import GlowPulse from '../../../components/ui/animation/GlowPulse';
-import ShimmerSweep from '../../../components/ui/animation/ShimmerSweep';
 import { useTheme } from "../../../theme/ThemeContext";
 import { Skill } from "../types";
 import styles from "./SkillItem.styles";
@@ -18,24 +16,10 @@ const SkillItemComponent: React.FC<SkillItemProps> = ({ skill, showPercent = fal
   // Icon rendering: string or component
   const Icon = typeof skill.icon === "string" ? null : skill.icon;
 
-  const [hovered, setHovered] = React.useState(false);
-
   return (
-    <Pressable
-      onHoverIn={() => setHovered(true)}
-      onHoverOut={() => setHovered(false)}
-      style={({ pressed }) => [
-        styles.container,
-        hovered && styles.hovered,
-        style,
-      ]}
-    >
-      <GlowPulse active={hovered} />
+    <View style={[styles.container, style]}>
       <View style={styles.row}>
-        <View style={[
-          styles.iconPlaceholder,
-          hovered && styles.iconHovered,
-        ]}> 
+        <View style={styles.iconPlaceholder}>
           {/* Render icon as actual icon, not text */}
           {typeof skill.icon === "string" ? (
             <IconSymbol name={skill.icon} size={24} style={styles.icon} />
@@ -44,13 +28,12 @@ const SkillItemComponent: React.FC<SkillItemProps> = ({ skill, showPercent = fal
           )}
         </View>
         <View style={styles.nameContainer}>
-          <Text style={[styles.name, hovered && styles.nameHovered]} numberOfLines={1}>
+          <Text style={styles.name} numberOfLines={1}>
             {skill.name}
           </Text>
         </View>
       </View>
-      <ShimmerSweep active={hovered} />
-    </Pressable>
+    </View>
   );
 };
 
