@@ -23,7 +23,12 @@ const GlassCardOverlay: React.FC = () => {
             <a href="https://github.com/imthiyasalam" target="_blank" rel="noopener noreferrer" style={{ margin: '0 8px' }}>
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style={{ width: 32, height: 32, background: '#fff', borderRadius: 16 }} />
             </a>
-        
+              <a href="mailto:imthiyasalam@gmail.com" target="_blank" rel="noopener noreferrer" style={{ margin: '0 8px' }}>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Email" style={{ width: 32, height: 32, background: '#fff', borderRadius: 16 }} />
+              </a>
+              <a href="https://instagram.com/imthiyas.alam" target="_blank" rel="noopener noreferrer" style={{ margin: '0 8px' }}>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/instagram/instagram-original.svg" alt="Instagram" style={{ width: 32, height: 32 }} />
+              </a>
           </View>
         </View>
       </View>
