@@ -19,8 +19,8 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ subtitle, style })
     <Section id="skills" background="transparent" style={[styles.section, style]}>
       <AnimatedBackground />
       <View style={{ alignItems: "center", marginBottom: spacing.lg, zIndex: 2 }}>
-        <Text style={styles.title}>Technical Expertise</Text>
-        <Text style={styles.subtitle}>
+        <Text style={{ ...styles.title, color: theme.colors.textPrimary }}>Technical Expertise</Text>
+        <Text style={{ ...styles.subtitle, color: theme.colors.textSecondary }}>
           {subtitle || "Technologies I use to build scalable, high-performance systems."}
         </Text>
       </View>
@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 12,
-    color: '#fff',
     letterSpacing: 1,
     textShadowColor: 'rgba(0,0,0,0.2)',
     textShadowOffset: { width: 0, height: 2 },
@@ -50,7 +49,6 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 18,
-    color: '#cfd8dc',
     textAlign: 'center',
     maxWidth: 600,
     lineHeight: 28,

@@ -15,15 +15,15 @@ export const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, 
   const { colors, spacing, shadows } = theme;
 
   return (
-    <View style={[styles.card, { backgroundColor: colors.background, padding: spacing.lg, borderWidth: 0, boxShadow: 'none' }, style]}>
-      {/* Removed GlowOrb and hover logic */}
+    <View style={[styles.card, { backgroundColor: colors.background, padding:8, borderWidth: 0, boxShadow: 'none' }, style]}>
+
       <Text style={[styles.title, { color: colors.textPrimary, marginBottom: spacing.md }]}>{category.title}</Text>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, maxWidth: '100%' }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, maxWidth: '100%' }}>
         {category.skills.map((skill, idx) => (
           <SkillItem
             key={skill.name}
             skill={skill}
-            style={{ marginRight: idx !== category.skills.length - 1 ? spacing.md : 0, minWidth: 100, marginBottom: 0 }}
+            style={{ marginRight: 0, minWidth: 100, marginBottom: 0 }}
           />
         ))}
       </View>

@@ -27,12 +27,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: "bold",
-    color: "#0070f3",
+    // color will be set from theme in BlogSection.tsx
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 18,
-    color: "#333",
+    // color will be set from theme in BlogSection.tsx
     marginBottom: 8,
   },
   gridWrap: {

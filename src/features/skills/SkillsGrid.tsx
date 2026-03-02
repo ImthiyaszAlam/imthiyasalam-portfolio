@@ -16,9 +16,9 @@ const SkillsGridComponent: React.FC<SkillsGridProps> = ({ categories, style }) =
   const breakpoint = useBreakpoint();
 
   return (
-    <View style={[styles.grid, { gap: spacing.lg, flexDirection: 'column' }, style]}>
+    <View style={[styles.grid, { gap: spacing.sm, flexDirection: 'column' }, style]}>
       {categories.map((cat) => (
-        <View key={cat.title} style={{ width: '100%', marginBottom: spacing.lg }}>
+        <View key={cat.title} style={{ width: '100%', marginBottom: spacing.sm }}>
           <SkillCategoryCard category={cat} />
         </View>
       ))}
