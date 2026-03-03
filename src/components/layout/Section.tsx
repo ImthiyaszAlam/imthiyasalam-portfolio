@@ -32,12 +32,14 @@ const Section = forwardRef<View, SectionProps>(
     const sectionRef = useRef<any>(null);
     const { registerSection } = useNavigation();
 
+    // Always forward the ref to the DOM node for web
     useEffect(() => {
-      // For web, register HTMLElement ref; for native, skip
-      if (typeof window !== 'undefined' && sectionRef.current) {
-        registerSection(id as any, sectionRef as any);
+      if (typeof window !== 'undefined') {
+        // Use the forwarded ref if provided, otherwise use sectionRef
+        const targetRef = ref ?? sectionRef;
+        registerSection(id as any, targetRef as any);
       }
-    }, [id, registerSection]);
+    }, [id, registerSection, ref]);
 
     let backgroundColor: string | undefined;
     if (background === 'surface') backgroundColor = 'rgba(0,0,0,0.55)';
@@ -62,10 +64,10 @@ const Section = forwardRef<View, SectionProps>(
       <Container>{children}</Container>
     );
 
-    // Forward ref if provided, otherwise use sectionRef
+    // Forward ref for web and native
     return (
       <View
-        ref={typeof window !== 'undefined' ? sectionRef : ref}
+        ref={typeof window !== 'undefined' ? (ref ?? sectionRef) : ref}
         accessibilityLabel={id}
         nativeID={id}
         style={sectionStyles}

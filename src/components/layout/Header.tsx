@@ -7,7 +7,6 @@ import { useTheme } from '../../theme/ThemeContext';
 import Container from './Container';
 
 const MENU = [
-  { id: 'home', icon: 'house.fill', label: 'Home' },
   { id: 'about', icon: 'person.crop.circle', label: 'About' },
   { id: 'blog', icon: 'book.fill', label: 'Blog' },
   { id: 'skills', icon: 'chevron.right', label: 'Skills' },
@@ -58,25 +57,25 @@ const Header: React.FC = React.memo(() => {
             ]}
           >
             <GlassCard style={{
-              borderRadius: 50,
-              margin: 0,
-              paddingHorizontal: 8,
-              paddingVertical: 2,
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: 8,
-              borderWidth: 1,
-              borderColor: activeSection === item.id ? theme.colors.primary : '#ccc',
-              borderStyle: 'solid',
-              backgroundColor: activeSection === item.id ? theme.colors.primary : 'transparent',
-            }}>
+                borderRadius: 50,
+                margin: 0,
+                paddingHorizontal: 8,
+                paddingVertical: 3,
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 8,
+                borderWidth: 1,
+                borderColor: activeSection === item.id ? theme.colors.textSecondary : theme.colors.textPrimary,
+                borderStyle: 'solid',
+                backgroundColor: 'transparent',
+              }}>
               <IconSymbol
                 name={item.icon as any}
                 size={24}
-                color={activeSection === item.id ? '#fff' : theme.colors.text}
+                color={activeSection === item.id ? theme.colors.textSecondary : theme.colors.textPrimary}
                 style={activeSection === item.id ? styles.menuTextActive : styles.menuText}
               />
-              <Text style={activeSection === item.id ? styles.menuTextActive : styles.menuText}>{item.label}</Text>
+              <Text style={activeSection === item.id ? [styles.menuTextActive, { color: theme.colors.textSecondary }] : styles.menuText}>{item.label}</Text>
             </GlassCard>
           </Pressable>
         ))}
@@ -137,10 +136,10 @@ const styles = StyleSheet.create({
   menu: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    gap: 0,
   },
   menuMobile: {
-    gap: 12,
+    gap: 8,
   },
   menuItem: {
     paddingHorizontal: 12,
@@ -159,6 +158,7 @@ const styles = StyleSheet.create({
   menuTextActive: {
     color: '#fff',
     fontWeight: 'bold',
+    borderColor: '#0070f3',
     textShadowColor: '#0070f3',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 16,

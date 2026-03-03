@@ -1,6 +1,7 @@
 // Color palette for the app
 
 export type ColorPalette = {
+  primary: ColorValue | undefined;
   textPrimary: string;
   textSecondary: string;
   background: string;
