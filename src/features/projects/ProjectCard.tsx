@@ -21,7 +21,7 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project }) => {
     <Card style={styles.card}>
       <Image
         source={{ uri: project.image }}
-        style={[StyleSheet.absoluteFillObject, { borderRadius: 8 }]}
+        style={styles.image}
         resizeMode="cover"
         accessible
         accessibilityLabel={project.title + ' image'}
@@ -62,7 +62,6 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project }) => {
           >
             <Text style={styles.buttonText}>Live Demo</Text>
           </Pressable>
-       
         </View>
       </View>
     </Card>
@@ -80,12 +79,15 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    height: '100%', // Cover 40% of the card height
+    height: '100%',
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
     zIndex: 2,
   },
-  // ...removed imageWrapper and image styles...
+  image: {
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: 8,
+  },
   card: {
     margin: 0,
     overflow: Platform.OS === 'web' ? 'visible' : 'hidden',
@@ -93,7 +95,6 @@ const styles = StyleSheet.create({
     transitionDuration: Platform.OS === 'web' ? '0.2s' : undefined,
     cursor: Platform.OS === 'web' ? 'pointer' : undefined,
     height: 300,
-    // width removed for flexible grid sizing
     borderRadius: 5,
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.12)',

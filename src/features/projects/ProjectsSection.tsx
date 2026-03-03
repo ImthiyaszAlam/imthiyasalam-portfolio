@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Section from '../../components/layout/Section';
+import ProjectsGrid from '../../components/organisms/ProjectGrid';
 import { useTheme } from '../../theme/ThemeContext';
-import ProjectsGrid from './ProjectsGrid';
 import { projects } from './data';
 
 import SectionHeader from '../../components/layout/SectionHeader';

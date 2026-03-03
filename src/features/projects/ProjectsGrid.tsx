@@ -9,18 +9,23 @@ interface ProjectsGridProps {
 }
 
 const styles = StyleSheet.create({
-  gridWrap: {
+  container: {
+    width: '100%',
+  },
+  row: {
     flexDirection: 'row',
-    alignItems: 'stretch',
-    paddingHorizontal: 8,
+    justifyContent: 'flex-start',
+    width: '100%',
+  },
+  rowMargin: {
+    marginBottom: 8,
   },
   cardCol: {
-    alignItems: 'stretch',
-    justifyContent: 'center',
+    width: '20%',
+    minWidth: 160,
   },
-  arrowButton: {
-    padding: 8,
-    zIndex: 2,
+  cardColMargin: {
+    marginRight: 8,
   },
 });
 
@@ -33,24 +38,21 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = React.memo(({ projects }) => {
   }
 
   return (
-    <View style={{ width: '100%' }}>
+    <View style={styles.container}>
       {rows.map((row, rowIdx) => (
         <View
           key={rowIdx}
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            marginBottom: rowIdx < rows.length - 1 ? 8 : 0,
-            width: '100%',
-          }}
+          style={[
+            styles.row,
+            rowIdx < rows.length - 1 && styles.rowMargin,
+          ]}
         >
           {row.map((project, idx) => (
             <View
-              style={{
-                width: '20%',
-                minWidth: 160,
-                marginRight: idx < row.length - 1 ? 8 : 0,
-              }}
+              style={[
+                styles.cardCol,
+                idx < row.length - 1 && styles.cardColMargin,
+              ]}
               key={project.id}
             >
               <ProjectCard project={project} />
